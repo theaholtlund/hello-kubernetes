@@ -45,3 +45,34 @@ minikube ip
 ```
 
 6. Access the application, which default is exposed on port 30001
+
+### Managing the Application
+
+- Get K8s deployments:
+  ```
+  kubectl get deployments
+  ```
+- Get K8s pods:
+  ```
+  kubectl get pods
+  ```
+- Get K8s services:
+  ```
+  kubectl get services
+  ```
+
+### Stopping and Starting Processes
+
+- Get K8s deployments:
+  ```
+  minikube start
+  ```
+- Get K8s deployments:
+  ```
+  minikube stop
+  ```
+- Delete deployments and services:
+  ```
+  kubectl delete -f deployment.yaml
+  kubectl delete -f service.yaml
+  ```
