@@ -11,10 +11,37 @@ Before starting, ensure the following are installed:
 - Kubectl, or download [here](https://minikube.sigs.k8s.io/docs/start/)
 - Node.js, or download [here](https://nodejs.org/en/download)
 
-### Run with Docker
+### Setup and Running Instructions
 
-To initialise the app from the Dockerfile, run the following command:
+1. Ensure minikube is running:
+
+```
+minikube start
+```
+
+2. Ensure Docker daemon is using the same Docker engine as Minikube:
+
+```
+eval $(minikube docker-env)
+```
+
+3. Build the Docker image:
 
 ```
 docker build -t hello-kubernetes-node .
 ```
+
+4. Start app by deploying Kubernetes manifests:
+
+```
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+```
+
+5. Find the Minikube IP address
+
+```
+minikube ip
+```
+
+6. Access the application, which default is exposed on port 30001
