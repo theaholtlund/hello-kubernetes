@@ -1,0 +1,23 @@
+{
+  "name": "hello-kubernetes",
+  "version": "1.0.0",
+  "description": "This is an entry-level Kubernetes application, aiming to learn the fundamental principles of the technology.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theaholtlund/hello-kubernetes.git"
+  },
+  "keywords": [],
+  "author": "Thea Holtlund Jacobsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theaholtlund/hello-kubernetes/issues"
+  },
+  "homepage": "https://github.com/theaholtlund/hello-kubernetes#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
