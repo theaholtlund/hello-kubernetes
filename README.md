@@ -6,20 +6,20 @@ This is an entry-level Kubernetes application, aiming to learn the fundamental p
 
 Before starting, ensure the following are installed:
 
-- Docker, or download [here](https://docs.docker.com/get-docker/)
-- Minikube, or download [here](https://minikube.sigs.k8s.io/docs/start/)
-- Kubectl, or download [here](https://minikube.sigs.k8s.io/docs/start/)
-- Node.js, or download [here](https://nodejs.org/en/download)
+- Docker, or download it [here](https://docs.docker.com/get-docker/).
+- Minikube, or download it [here](https://minikube.sigs.k8s.io/docs/start/).
+- Kubectl, or download it [here](https://minikube.sigs.k8s.io/docs/start/).
+- Node.js, or download it [here](https://nodejs.org/en/download).
 
 ### Setup and Running Instructions
 
-1. Ensure minikube is running:
+1. Ensure Minikube is running:
 
 ```
 minikube start
 ```
 
-2. Ensure Docker daemon is using the same Docker engine as Minikube:
+2. Set environment to ensure Docker daemon and Minikube are using the same Docker engine:
 
 ```
 eval $(minikube docker-env)
