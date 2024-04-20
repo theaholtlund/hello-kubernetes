@@ -38,13 +38,11 @@ kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
 
-5. Find the Minikube IP address
+5. Create a minikube service tunnel to access the application
 
 ```
-minikube ip
+minikube service hello-kubernetes-service
 ```
-
-6. Access the application, which default is exposed on port 30001
 
 ### Managing the Application
 
