@@ -17,12 +17,6 @@ spec:
       containers:
         - name: hello-kubernetes
           image: hello-kubernetes-node
+          imagePullPolicy: Never
           ports:
             - containerPort: 3000
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 3000
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 5
