@@ -13,7 +13,7 @@ Before starting, ensure the following are installed:
 
 ### Setup and Running Instructions
 
-1. Ensure Minikube is running:
+1. Ensure minikube is running:
 
 ```
 minikube start
@@ -61,11 +61,11 @@ minikube service hello-kubernetes-service
 
 ### Stopping and Starting Processes
 
-- Get K8s deployments:
+- Start minikube:
   ```
   minikube start
   ```
-- Get K8s deployments:
+- Stop minikube:
   ```
   minikube stop
   ```
