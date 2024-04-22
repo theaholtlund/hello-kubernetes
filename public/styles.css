@@ -1,0 +1,21 @@
+/* Rules for styling the container */
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+}
+
+/* Rules for styling headings */
+h1 {
+  color: #333;
+}
+
+/* Rules for styling paragraphs */
+p {
+  line-height: 1.5;
+}
+
+/* Rules for styling links */
+.highlight {
+  color: orange;
+}
