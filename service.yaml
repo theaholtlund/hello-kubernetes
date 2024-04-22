@@ -3,12 +3,17 @@
 apiVersion: v1
 kind: Service
 metadata:
+  # Name by which the service will be identified
   name: hello-kubernetes-service
 spec:
+  # NodePort service exposes a service on a specific port on all nodes in the cluster
   type: NodePort
   ports:
+    # The port exposed by the service
     - port: 3000
+      # The port on the pods to which traffic will be forwarded
       targetPort: 3000
+      # The port on the nodes where the service is exposed
       nodePort: 30001
   selector:
     app: hello-kubernetes

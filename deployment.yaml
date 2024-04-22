@@ -5,16 +5,21 @@ kind: Deployment
 metadata:
   name: hello-kubernetes
 spec:
+  # Number of pods to be maintained
   replicas: 2
   selector:
     matchLabels:
+      # Pods to which this deployment applies based on labels
       app: hello-kubernetes
+  # Describes the pods to be created as part of the deployment
   template:
     metadata:
       labels:
+        # Labels applied to the pods created by template
         app: hello-kubernetes
     spec:
       containers:
+        # The name of the container within the pod.
         - name: hello-kubernetes
           image: hello-kubernetes-node
           imagePullPolicy: Never
