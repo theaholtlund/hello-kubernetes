@@ -3,9 +3,8 @@
   margin: 0 auto;
   max-width: 600px;
   padding: 20px;
-  background-color: #f0f0f0;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fcd6ad;
 }
 
 /* Rules for styling the heading */
@@ -23,6 +22,30 @@ p {
 
 /* Rules for styling links */
 .highlight {
-  color: orange;
+  color: #ff8b19;
   font-weight: bold;
+}
+
+/* Rules for styling for datetime page */
+.datetime-container {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fcd6ad;
+}
+
+.datetime-heading {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.datetime-text {
+  font-size: 18px;
+  color: #333;
+}
+
+.datetime-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff8b19;
 }
