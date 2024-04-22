@@ -3,19 +3,26 @@
   margin: 0 auto;
   max-width: 600px;
   padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Rules for styling headings */
-h1 {
+/* Rules for styling the heading */
+.heading {
   color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 /* Rules for styling paragraphs */
 p {
   line-height: 1.5;
+  margin-bottom: 10px;
 }
 
 /* Rules for styling links */
 .highlight {
   color: orange;
+  font-weight: bold;
 }
