@@ -11,7 +11,7 @@ spec:
     matchLabels:
       # Pods to which this deployment applies based on labels
       app: hello-kubernetes
-  # Describes the pods to be created as part of the deployment
+  # Describe pods to be created as part of deployment
   template:
     metadata:
       labels:
@@ -19,7 +19,7 @@ spec:
         app: hello-kubernetes
     spec:
       containers:
-        # The name of the container within the pod.
+        # Name of the container within the pod
         - name: hello-kubernetes
           image: hello-kubernetes-node
           imagePullPolicy: Never
