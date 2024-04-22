@@ -13,7 +13,7 @@ Before starting, ensure the following are installed:
 
 ### Setup and Running Instructions
 
-1. Ensure minikube is running:
+1. Ensure Minikube is running:
 
 ```
 minikube start
@@ -38,7 +38,7 @@ kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
 
-5. Create a minikube service tunnel to access the application
+5. Create a Minikube service tunnel to access the application
 
 ```
 minikube service hello-kubernetes-service
@@ -77,11 +77,11 @@ nodemon app.js
 
 ### Stopping and Starting Processes
 
-- Start minikube:
+- Start Minikube:
   ```
   minikube start
   ```
-- Stop minikube:
+- Stop Minikube:
   ```
   minikube stop
   ```
