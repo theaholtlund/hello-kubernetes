@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 // Define route handler to get current date and time
 app.get("/datetime", (req, res) => {
   const currentDate = new Date().toLocaleString();
-  res.send(`Current date and time: ${currentDate}`);
+  res.send(currentDate);
 });
 
 // Start app, callback function for when application starts
