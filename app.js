@@ -14,10 +14,15 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Define route handler to get current date and time
+// Define route handler for datetime page
 app.get("/datetime", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "datetime.html"));
+});
+
+// Define route handler to get current date and time
+app.get("/currentdatetime", (req, res) => {
   const currentDate = new Date().toLocaleString();
-  res.send(currentDate);
+  res.json({ datetime: currentDate });
 });
 
 // Start app, callback function for when application starts
