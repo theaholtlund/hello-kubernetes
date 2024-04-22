@@ -44,6 +44,22 @@ kubectl apply -f service.yaml
 minikube service hello-kubernetes-service
 ```
 
+### Local Testing Before Building
+
+To speed up the development process and test the web application locally without rebuilding Docker images and redeploying containers, follow these steps:
+
+1. Install live reload with live-server, here globally:
+
+```
+npm install -g nodemon live-server
+```
+
+2. Run the app with Node.js server, using nodemon commands:
+
+```
+nodemon app.js
+```
+
 ### Managing the Application
 
 - Get K8s deployments:
