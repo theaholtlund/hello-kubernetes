@@ -1,23 +1,32 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
 /* Rules for styling the container */
 .container {
-  margin: 0 auto;
-  max-width: 600px;
+  margin: 20px auto;
+  max-width: 800px;
   padding: 20px;
   border-radius: 10px;
-  background-color: #fcd6ad;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Rules for styling the heading */
 .heading {
   color: #333;
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 /* Rules for styling paragraphs */
 p {
-  line-height: 1.5;
-  margin-bottom: 10px;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
 /* Rules for styling links */
@@ -30,22 +39,23 @@ p {
 .datetime-container {
   border-radius: 10px;
   padding: 20px;
-  background-color: #fcd6ad;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .datetime-heading {
-  font-size: 24px;
+  font-size: 28px;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .datetime-text {
-  font-size: 18px;
+  font-size: 20px;
   color: #333;
 }
 
 .datetime-value {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #ff8b19;
 }
