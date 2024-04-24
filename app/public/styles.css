@@ -35,14 +35,12 @@ p {
   font-weight: bold;
 }
 
-/* Rules for styling for datetime page */
-.datetime-text {
-  font-size: 20px;
-  color: #333;
-}
-
+/* Rules for styling the datetime value */
 .datetime-value {
   font-size: 20px;
+  text-align: center;
   font-weight: bold;
-  color: #ff8b19;
+  color: #ffa64e;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
