@@ -41,6 +41,12 @@ p {
   text-align: center;
   font-weight: bold;
   color: #ffa64e;
-  padding: 20px;
+}
+
+/* Rules for styling the datetime container */
+.datetime-container {
+  margin: 20px;
+  border-radius: 10px;
+  border: 2px solid #333;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
