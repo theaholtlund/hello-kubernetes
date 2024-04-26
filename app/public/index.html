@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to My App</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="icon" href="favicon.ico?v=1.1" />
   </head>
   <body>
     <!-- Home Page Section -->
@@ -25,9 +25,15 @@
       <h2 class="heading">Please Leave us a Greeting!</h2>
       <form id="greetingForm">
         <label for="greetingTitle">Title:</label>
-        <input type="text" id="greetingTitle" required /><br />
-        <label for="greetingContent">Content:</label>
-        <textarea id="greetingContent" required></textarea><br />
+        <input
+          type="text"
+          id="greetingTitle"
+          class="input-field"
+          required
+        /><br />
+        <label for="greetingContent" class="input-field">Content:</label>
+        <textarea id="greetingContent" class="input-field" required></textarea
+        ><br />
         <button type="submit" class="button">Add greeting</button>
       </form>
       <div id="greetingsList">
