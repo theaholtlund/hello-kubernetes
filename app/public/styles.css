@@ -46,7 +46,8 @@ p {
 /* Rules for styling the datetime container */
 .datetime-container {
   margin: 20px;
-  border-radius: 10px;
-  border: 2px solid #333;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #333;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
