@@ -33,6 +33,20 @@ p {
 .highlight {
   color: #ff8b19;
   font-weight: bold;
+  margin: 8px 0;
+}
+
+/* Rules for styling input fields */
+.input-field {
+  width: 60%;
+  margin: 8px;
+  padding: 6px;
+}
+
+/* Rules for styling form elements */
+form {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Rules for styling general buttons */

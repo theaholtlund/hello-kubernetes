@@ -25,17 +25,11 @@
       <h2 class="heading">Please Leave us a Greeting!</h2>
       <form id="greetingForm">
         <label for="greetingTitle">Title:</label>
-        <input
-          type="text"
-          id="greetingTitle"
-          class="input-field"
-          required
-        /><br />
-        <label for="greetingContent" class="input-field">Content:</label>
-        <textarea id="greetingContent" class="input-field" required></textarea
-        ><br />
-        <button type="submit" class="button">Add greeting</button>
+        <input id="greetingTitle" class="input-field" required /><br />
+        <label for="greetingContent">Content:</label>
+        <input id="greetingContent" class="input-field" required /><br />
       </form>
+      <button type="submit" class="button">Add greeting</button>
       <div id="greetingsList">
         <!-- Existing greetings will be displayed here -->
       </div>
