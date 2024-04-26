@@ -58,6 +58,13 @@ app.put("/api/notes/:id", (req, res) => {
   res.json(noteToUpdate);
 });
 
+// Route handler to delete a note
+app.delete("/api/notes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  notes = notes.filter((note) => note.id !== id);
+  res.sendStatus(204); // No content response
+});
+
 // Default route handler
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));

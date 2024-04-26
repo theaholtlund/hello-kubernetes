@@ -30,21 +30,37 @@
         <textarea id="noteContent" required></textarea><br />
         <button type="submit">Add Note</button>
       </form>
-      <div id="notesList"></div>
+      <div id="notesList">
+        <!-- Existing notes will be displayed here -->
+      </div>
     </div>
+
     <script src="app.js"></script>
     <script>
-      // Fetch and display existing notes on page load
-      fetch("/api/notes")
-        .then((response) => response.json())
-        .then((notes) => {
-          const notesList = document.getElementById("notesList");
-          notes.forEach((note) => {
-            const noteElement = document.createElement("div");
-            noteElement.innerHTML = `<h3>${note.title}</h3><p>${note.content}</p>`;
-            notesList.appendChild(noteElement);
+      // Function to create HTML element for displaying a note
+      function createNoteElement(note) {
+        const noteElement = document.createElement("div");
+        noteElement.innerHTML = `
+                <h3>${note.title}</h3>
+                <p>${note.content}</p>
+                <button onclick="deleteNote(${note.id})">Delete</button>
+            `;
+        return noteElement;
+      }
+
+      // Function to fetch and display existing notes
+      function fetchAndDisplayNotes() {
+        fetch("/api/notes")
+          .then((response) => response.json())
+          .then((notes) => {
+            const notesList = document.getElementById("notesList");
+            notesList.innerHTML = ""; // Clear existing notes
+            notes.forEach((note) => {
+              const noteElement = createNoteElement(note);
+              notesList.appendChild(noteElement);
+            });
           });
-        });
+      }
 
       // Handle form submission to add a new note
       document
@@ -62,13 +78,30 @@
           })
             .then((response) => response.json())
             .then((newNote) => {
-              const notesList = document.getElementById("notesList");
-              const noteElement = document.createElement("div");
-              noteElement.innerHTML = `<h3>${newNote.title}</h3><p>${newNote.content}</p>`;
-              notesList.appendChild(noteElement);
+              fetchAndDisplayNotes();
               document.getElementById("noteForm").reset();
             });
         });
+
+      // Function to delete a note
+      function deleteNote(noteId) {
+        fetch(`/api/notes/${noteId}`, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            if (response.ok) {
+              fetchAndDisplayNotes();
+            } else {
+              console.error("Failed to delete note");
+            }
+          })
+          .catch((error) => {
+            console.error("Error deleting note:", error);
+          });
+      }
+
+      // Initial fetch and display of notes on page load
+      fetchAndDisplayNotes();
     </script>
   </body>
 </html>
