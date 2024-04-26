@@ -29,40 +29,40 @@ app.get("/currentdatetime", (req, res) => {
   res.json({ datetime: currentDate });
 });
 
-// Array to store notes data
-let notes = [];
+// Array to store greetings data
+let greetings = [];
 
-// Route handler to get all notes
-app.get("/api/notes", (req, res) => {
-  res.json(notes);
+// Route handler to get all greetings
+app.get("/api/greetings", (req, res) => {
+  res.json(greetings);
 });
 
-// Route handler to add a new note
-app.post("/api/notes", (req, res) => {
+// Route handler to add a new greeting
+app.post("/api/greetings", (req, res) => {
   const { title, content } = req.body;
-  const newNote = { id: notes.length + 1, title, content };
-  notes.push(newNote);
-  res.status(201).json(newNote);
+  const newGreeting = { id: greetings.length + 1, title, content };
+  greetings.push(newGreeting);
+  res.status(201).json(newGreeting);
 });
 
-// Route handler to update a note
-app.put("/api/notes/:id", (req, res) => {
+// Route handler to update a greeting
+app.put("/api/greetings/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const { title, content } = req.body;
-  const noteToUpdate = notes.find((note) => note.id === id);
-  if (!noteToUpdate) {
-    return res.status(404).json({ error: "Note not found" });
+  const greetingToUpdate = greetings.find((greeting) => greeting.id === id);
+  if (!greetingToUpdate) {
+    return res.status(404).json({ error: "Greeting not found" });
   }
-  noteToUpdate.title = title;
-  noteToUpdate.content = content;
-  res.json(noteToUpdate);
+  greetingToUpdate.title = title;
+  greetingToUpdate.content = content;
+  res.json(greetingToUpdate);
 });
 
-// Route handler to delete a note
-app.delete("/api/notes/:id", (req, res) => {
+// Route handler to delete a greeting
+app.delete("/api/greetings/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  notes = notes.filter((note) => note.id !== id);
-  res.sendStatus(204); // No content response
+  greetings = greetings.filter((greeting) => greeting.id !== id);
+  res.sendStatus(204);
 });
 
 // Default route handler

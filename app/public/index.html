@@ -20,56 +20,56 @@
       </p>
     </div>
 
-    <!-- Note-Taking Section -->
+    <!-- Greetings Section -->
     <div class="container">
-      <h2 class="subheading">Take Notes</h2>
-      <form id="noteForm">
-        <label for="noteTitle">Title:</label>
-        <input type="text" id="noteTitle" required /><br />
-        <label for="noteContent">Content:</label>
-        <textarea id="noteContent" required></textarea><br />
-        <button type="submit">Add Note</button>
+      <h2 class="subheading">Please leave us a greeting</h2>
+      <form id="greetingForm">
+        <label for="greetingTitle">Title:</label>
+        <input type="text" id="greetingTitle" required /><br />
+        <label for="greetingContent">Content:</label>
+        <textarea id="greetingContent" required></textarea><br />
+        <button type="submit">Add greeting</button>
       </form>
-      <div id="notesList">
-        <!-- Existing notes will be displayed here -->
+      <div id="greetingsList">
+        <!-- Existing greetings will be displayed here -->
       </div>
     </div>
 
     <script src="app.js"></script>
     <script>
-      // Function to create HTML element for displaying a note
-      function createNoteElement(note) {
-        const noteElement = document.createElement("div");
-        noteElement.innerHTML = `
-                <h3>${note.title}</h3>
-                <p>${note.content}</p>
-                <button onclick="deleteNote(${note.id})">Delete</button>
+      // Function to create HTML element for displaying a greeting
+      function createGreetingElement(greeting) {
+        const greetingElement = document.createElement("div");
+        greetingElement.innerHTML = `
+                <h3>${greeting.title}</h3>
+                <p>${greeting.content}</p>
+                <button onclick="deleteGreeting(${greeting.id})">Delete</button>
             `;
-        return noteElement;
+        return greetingElement;
       }
 
-      // Function to fetch and display existing notes
-      function fetchAndDisplayNotes() {
-        fetch("/api/notes")
+      // Function to fetch and display existing greetings
+      function fetchAndDisplayGreetings() {
+        fetch("/api/greetings")
           .then((response) => response.json())
-          .then((notes) => {
-            const notesList = document.getElementById("notesList");
-            notesList.innerHTML = ""; // Clear existing notes
-            notes.forEach((note) => {
-              const noteElement = createNoteElement(note);
-              notesList.appendChild(noteElement);
+          .then((greetings) => {
+            const greetingsList = document.getElementById("greetingsList");
+            greetingsList.innerHTML = ""; // Clear existing greetings
+            greetings.forEach((greeting) => {
+              const greetingElement = createGreetingElement(greeting);
+              greetingsList.appendChild(greetingElement);
             });
           });
       }
 
-      // Handle form submission to add a new note
+      // Handle form submission to add a new greeting
       document
-        .getElementById("noteForm")
+        .getElementById("greetingForm")
         .addEventListener("submit", (event) => {
           event.preventDefault();
-          const title = document.getElementById("noteTitle").value;
-          const content = document.getElementById("noteContent").value;
-          fetch("/api/notes", {
+          const title = document.getElementById("greetingTitle").value;
+          const content = document.getElementById("greetingContent").value;
+          fetch("/api/greetings", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -77,31 +77,31 @@
             body: JSON.stringify({ title, content }),
           })
             .then((response) => response.json())
-            .then((newNote) => {
-              fetchAndDisplayNotes();
-              document.getElementById("noteForm").reset();
+            .then((newGreeting) => {
+              fetchAndDisplayGreetings();
+              document.getElementById("greetingForm").reset();
             });
         });
 
-      // Function to delete a note
-      function deleteNote(noteId) {
-        fetch(`/api/notes/${noteId}`, {
+      // Function to delete a greeting
+      function deleteGreeting(greetingId) {
+        fetch(`/api/greetings/${greetingId}`, {
           method: "DELETE",
         })
           .then((response) => {
             if (response.ok) {
-              fetchAndDisplayNotes();
+              fetchAndDisplayGreetings();
             } else {
-              console.error("Failed to delete note");
+              console.error("Failed to delete greeting");
             }
           })
           .catch((error) => {
-            console.error("Error deleting note:", error);
+            console.error("Error deleting greeting:", error);
           });
       }
 
-      // Initial fetch and display of notes on page load
-      fetchAndDisplayNotes();
+      // Initial fetch and display of greetings on page load
+      fetchAndDisplayGreetings();
     </script>
   </body>
 </html>
