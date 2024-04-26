@@ -25,8 +25,8 @@ body {
 
 /* Rules for styling general paragraphs */
 p {
+  margin: 0;
   line-height: 1.6;
-  margin-bottom: 15px;
 }
 
 /* Rules for styling general links */
@@ -66,8 +66,8 @@ p {
 
 /* Rules for styling datetime container */
 .datetime-container {
-  margin: 20px;
-  padding: 5px;
+  margin: 18px;
+  padding: 18px;
   border-radius: 5px;
   border: 1px solid #333;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
