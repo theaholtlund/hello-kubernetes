@@ -8,6 +8,7 @@
     <link rel="icon" href="favicon.png" type="image/png" />
   </head>
   <body>
+    <!-- Home Page Section -->
     <div class="container">
       <h1 class="heading">Welcome to My App</h1>
       <p>This is a simple Express.js web application.</p>
@@ -18,6 +19,56 @@
         current date and time.
       </p>
     </div>
+
+    <!-- Note-Taking Section -->
+    <div class="container">
+      <h2 class="subheading">Take Notes</h2>
+      <form id="noteForm">
+        <label for="noteTitle">Title:</label>
+        <input type="text" id="noteTitle" required /><br />
+        <label for="noteContent">Content:</label>
+        <textarea id="noteContent" required></textarea><br />
+        <button type="submit">Add Note</button>
+      </form>
+      <div id="notesList"></div>
+    </div>
     <script src="app.js"></script>
+    <script>
+      // Fetch and display existing notes on page load
+      fetch("/api/notes")
+        .then((response) => response.json())
+        .then((notes) => {
+          const notesList = document.getElementById("notesList");
+          notes.forEach((note) => {
+            const noteElement = document.createElement("div");
+            noteElement.innerHTML = `<h3>${note.title}</h3><p>${note.content}</p>`;
+            notesList.appendChild(noteElement);
+          });
+        });
+
+      // Handle form submission to add a new note
+      document
+        .getElementById("noteForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          const title = document.getElementById("noteTitle").value;
+          const content = document.getElementById("noteContent").value;
+          fetch("/api/notes", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ title, content }),
+          })
+            .then((response) => response.json())
+            .then((newNote) => {
+              const notesList = document.getElementById("notesList");
+              const noteElement = document.createElement("div");
+              noteElement.innerHTML = `<h3>${newNote.title}</h3><p>${newNote.content}</p>`;
+              notesList.appendChild(noteElement);
+              document.getElementById("noteForm").reset();
+            });
+        });
+    </script>
   </body>
 </html>
