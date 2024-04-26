@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// Serve static files from the "public" directory
+// Serve static files from the public directory
 app.use(express.static(path.join(__dirname, "public")));
 
 // Define route handler for default home page
@@ -63,11 +63,6 @@ app.delete("/api/greetings/:id", (req, res) => {
   const id = parseInt(req.params.id);
   greetings = greetings.filter((greeting) => greeting.id !== id);
   res.sendStatus(204);
-});
-
-// Default route handler
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(PORT, () => {
