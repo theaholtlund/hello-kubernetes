@@ -57,7 +57,7 @@ npm install -g nodemon live-server
 2. Run the app with Node.js server, using nodemon commands:
 
 ```
-npm start
+nodemon start
 ```
 
 ### Managing the Application
