@@ -22,13 +22,13 @@
 
     <!-- Greetings Section -->
     <div class="container">
-      <h2 class="subheading">Please leave us a greeting</h2>
+      <h2 class="heading">Please Leave us a Greeting!</h2>
       <form id="greetingForm">
         <label for="greetingTitle">Title:</label>
         <input type="text" id="greetingTitle" required /><br />
         <label for="greetingContent">Content:</label>
         <textarea id="greetingContent" required></textarea><br />
-        <button type="submit">Add greeting</button>
+        <button type="submit" class="button">Add greeting</button>
       </form>
       <div id="greetingsList">
         <!-- Existing greetings will be displayed here -->
@@ -43,7 +43,7 @@
         greetingElement.innerHTML = `
                 <h3>${greeting.title}</h3>
                 <p>${greeting.content}</p>
-                <button onclick="deleteGreeting(${greeting.id})">Delete</button>
+                <button onclick="deleteGreeting(${greeting.id})" class="button">Delete</button>
             `;
         return greetingElement;
       }

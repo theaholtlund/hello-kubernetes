@@ -6,7 +6,7 @@ body {
   padding: 0;
 }
 
-/* Rules for styling the container */
+/* Rules for styling general containers */
 .container {
   margin: 20px auto;
   max-width: 800px;
@@ -16,26 +16,36 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Rules for styling the heading */
+/* Rules for styling general headings */
 .heading {
   color: #333;
   font-size: 32px;
   margin-bottom: 20px;
 }
 
-/* Rules for styling paragraphs */
+/* Rules for styling general paragraphs */
 p {
   line-height: 1.6;
   margin-bottom: 15px;
 }
 
-/* Rules for styling links */
+/* Rules for styling general links */
 .highlight {
   color: #ff8b19;
   font-weight: bold;
 }
 
-/* Rules for styling the datetime value */
+/* Rules for styling general buttons */
+.button {
+  margin: 5px;
+  background-color: #ffa64e;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+/* Rules for styling datetime value */
 .datetime-value {
   font-size: 20px;
   text-align: center;
@@ -43,7 +53,7 @@ p {
   color: #ffa64e;
 }
 
-/* Rules for styling the datetime container */
+/* Rules for styling datetime container */
 .datetime-container {
   margin: 20px;
   padding: 5px;
