@@ -16,13 +16,12 @@
         <p class="datetime-value" id="currentDateTime"></p>
       </div>
       <p>
-        Navigate back to the <a href="/" class="highlight"> Home Page</a> to see
+        Navigate back to the <a href="/" class="highlight">Home Page</a> to see
         the app overview.
       </p>
     </div>
-    <script src="/app.js"></script>
+    <script src="app.js"></script>
     <script>
-      // Fetch current date and time from server
       fetch("/currentdatetime")
         .then((response) => response.json())
         .then((data) => {
