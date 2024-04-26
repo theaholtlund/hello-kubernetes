@@ -22,20 +22,21 @@
 
     <!-- Greetings Section -->
     <div class="container">
-      <h2 class="heading">Please Leave us a Greeting!</h2>
+      <h2 class="heading">Please Leave Us a Greeting!</h2>
       <form id="greetingForm">
-        <label for="greetingTitle">Title:</label>
-        <input id="greetingTitle" class="input-field" required /><br />
-        <label for="greetingContent">Content:</label>
-        <input id="greetingContent" class="input-field" required /><br />
+        <div class="input-field">
+          <label for="greetingTitle">Title:</label>
+          <input id="greetingTitle" required /><br />
+          <label for="greetingContent">Content:</label>
+          <input id="greetingContent" required /><br />
+        </div>
+        <button type="submit" class="button">Add greeting</button>
       </form>
-      <button type="submit" class="button">Add greeting</button>
       <div id="greetingsList">
         <!-- Existing greetings will be displayed here -->
       </div>
     </div>
 
-    <script src="app.js"></script>
     <script>
       // Function to create HTML element for displaying a greeting
       function createGreetingElement(greeting) {
