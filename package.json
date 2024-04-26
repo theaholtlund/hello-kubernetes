@@ -4,7 +4,7 @@
   "description": "This is an entry-level Kubernetes application, aiming to learn the fundamental principles of the technology.",
   "main": "app/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app/app.js"
   },
   "repository": {
     "type": "git",
