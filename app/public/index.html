@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to My App</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="favicon.ico?v=1.1" />
+    <link rel="icon" href="graphics/favicon.ico?v=1.1" />
   </head>
   <body>
     <!-- Home Page Section -->
@@ -55,7 +55,7 @@
           .then((response) => response.json())
           .then((greetings) => {
             const greetingsList = document.getElementById("greetingsList");
-            greetingsList.innerHTML = ""; // Clear existing greetings
+            greetingsList.innerHTML = "";
             greetings.forEach((greeting) => {
               const greetingElement = createGreetingElement(greeting);
               greetingsList.appendChild(greetingElement);
