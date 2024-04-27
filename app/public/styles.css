@@ -72,3 +72,10 @@ p {
   border: 1px solid #333;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Rules for styling embedded graphic */
+.graphic {
+  height: auto;
+  float: right;
+  max-width: 10%;
+}

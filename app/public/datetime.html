@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DateTime Page</title>
     <link rel="stylesheet" href="/styles.css" />
-    <link rel="icon" href="graphics/favicon.ico?v=1.1" />
+    <link rel="icon" href="favicon.ico?v=1.1" />
   </head>
+
   <body>
     <div class="container">
+      <img src="graphics/datetime.png" alt="Clock image" class="graphic" />
       <h1 class="heading">Date and Time</h1>
       <p class="datetime-text">Current date and time:</p>
       <div class="datetime-container">
@@ -19,6 +21,7 @@
         the app overview.
       </p>
     </div>
+
     <script src="app.js"></script>
     <script>
       fetch("/currentdatetime")
