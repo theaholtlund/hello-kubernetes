@@ -65,6 +65,7 @@ app.delete("/api/greetings/:id", (req, res) => {
   res.sendStatus(204);
 });
 
+// Start app, callback function for when application starts
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
