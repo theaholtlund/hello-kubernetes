@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/styles.css" />
     <link rel="icon" href="favicon.ico?v=1.1" />
   </head>
-
   <body>
     <div class="container">
       <img src="graphics/datetime.png" alt="Clock image" class="graphic" />
@@ -22,14 +21,6 @@
       </p>
     </div>
 
-    <script src="app.js"></script>
-    <script>
-      fetch("/currentdatetime")
-        .then((response) => response.json())
-        .then((data) => {
-          document.getElementById("currentDateTime").textContent =
-            data.datetime;
-        });
-    </script>
+    <script src="datetime.js"></script>
   </body>
 </html>
