@@ -2,9 +2,9 @@
   "name": "hello-kubernetes",
   "version": "1.0.0",
   "description": "This is an entry-level Kubernetes application, aiming to learn the fundamental principles of the technology.",
-  "main": "app/app.js",
+  "main": "app/server.js",
   "scripts": {
-    "start": "node app/app.js"
+    "start": "node app/server.js"
   },
   "repository": {
     "type": "git",
