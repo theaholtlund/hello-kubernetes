@@ -79,3 +79,15 @@ p {
   float: right;
   max-width: 10%;
 }
+
+/* Rules for styling greeting title */
+.greeting-title {
+  font-size: 20px;
+  color: #ff8b19;
+}
+
+/* Rules for styling greeting text */
+.greeting-text {
+  font-size: 16px;
+  color: #333;
+}

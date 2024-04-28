@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="graphics/favicon.ico?v=1.1" />
   </head>
+
   <body>
     <!-- Home Page Section -->
     <div class="container">
@@ -42,10 +43,10 @@
       function createGreetingElement(greeting) {
         const greetingElement = document.createElement("div");
         greetingElement.innerHTML = `
-                <h3>${greeting.title}</h3>
-                <p>${greeting.content}</p>
-                <button onclick="deleteGreeting(${greeting.id})" class="button">Delete</button>
-            `;
+        <h3 class="greeting-title">${greeting.title}</h3>
+        <p class="greeting-text">${greeting.content}</p>
+        <button onclick="deleteGreeting(${greeting.id})" class="button">Delete</button>
+      `;
         return greetingElement;
       }
 
