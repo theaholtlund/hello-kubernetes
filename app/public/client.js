@@ -1,16 +1,31 @@
 // Function to handle dropdown menu behavior
-function toggleDropdownMenu() {
+function toggleDropdownMenu(show) {
   const dropdownMenu = document.getElementById("dropdownMenu");
-  dropdownMenu.classList.toggle("show");
+  dropdownMenu.classList.toggle("show", show);
 }
 
 // Event listeners to show/hide dropdown menu on hover
 document
-  .querySelector(".dropdown-button")
-  .addEventListener("mouseenter", toggleDropdownMenu);
+  .querySelector(".dropdown-container")
+  .addEventListener("mouseenter", () => {
+    toggleDropdownMenu(true);
+  });
+
 document
-  .querySelector(".dropdown-button")
-  .addEventListener("mouseleave", toggleDropdownMenu);
+  .querySelector(".dropdown-container")
+  .addEventListener("mouseleave", () => {
+    toggleDropdownMenu(false);
+  });
+
+// Close the dropdown menu if the user clicks outside of it
+window.addEventListener("click", (event) => {
+  if (
+    !event.target.matches(".dropdown-button") &&
+    !event.target.closest(".dropdown-content")
+  ) {
+    toggleDropdownMenu(false);
+  }
+});
 
 // Close the dropdown menu if the user clicks outside of it
 window.addEventListener("click", (event) => {
