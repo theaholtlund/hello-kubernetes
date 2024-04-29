@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 // Serve static files from the public directory
+// Middleware function that tells Express where to look for files
 app.use(express.static(path.join(__dirname, "public")));
 
 // Define route handler for default home page
