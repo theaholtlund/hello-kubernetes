@@ -33,6 +33,17 @@
       </p>
     </div>
 
-    <script src="client.js"></script>
+    <script>
+      // Fetch current date and time from the server
+      fetch("/currentdatetime")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("currentDateTime").textContent =
+            data.datetime;
+        })
+        .catch((error) => {
+          console.error("Error fetching current datetime:", error);
+        });
+    </script>
   </body>
 </html>
