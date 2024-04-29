@@ -1,3 +1,29 @@
+// Function to handle dropdown menu behavior
+function toggleDropdownMenu() {
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  dropdownMenu.classList.toggle("show");
+}
+
+// Event listeners to show/hide dropdown menu on hover
+document
+  .querySelector(".dropdown-button")
+  .addEventListener("mouseenter", toggleDropdownMenu);
+document
+  .querySelector(".dropdown-button")
+  .addEventListener("mouseleave", toggleDropdownMenu);
+
+// Close the dropdown menu if the user clicks outside of it
+window.addEventListener("click", (event) => {
+  if (!event.target.matches(".dropdown-button")) {
+    const dropdownMenus = document.getElementsByClassName("dropdown-content");
+    Array.from(dropdownMenus).forEach((menu) => {
+      if (menu.classList.contains("show")) {
+        menu.classList.remove("show");
+      }
+    });
+  }
+});
+
 // Function to create HTML element for displaying a greeting
 function createGreetingElement(greeting) {
   const greetingElement = document.createElement("div");
