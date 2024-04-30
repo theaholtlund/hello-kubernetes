@@ -56,30 +56,6 @@ p {
   border: 1px solid #333;
 }
 
-/* Rules for styling datetime value */
-.datetime-value {
-  font-size: 20px;
-  text-align: center;
-  font-weight: bold;
-  color: #ffa64e;
-}
-
-/* Rules for styling datetime container */
-.datetime-container {
-  margin: 18px;
-  padding: 18px;
-  border-radius: 5px;
-  border: 1px solid #333;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Rules for styling embedded graphic */
-.graphic {
-  height: auto;
-  float: right;
-  max-width: 10%;
-}
-
 /* Rules for styling greeting title */
 .greeting-title {
   font-size: 20px;
@@ -92,24 +68,31 @@ p {
   color: #333;
 }
 
-/* Rules for showing dropdown container */
-.dropdown-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-  margin-right: 20px;
+/* Rules for styling navigation bar */
+.navbar {
+  background-color: #333;
+  overflow: hidden;
 }
 
-/* Rules for styling dropdown menu */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Rules for showing dropdown menu */
-.dropdown-content.show {
+/* Rules for styling navigation links */
+.nav-link {
+  float: left;
   display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Rules for styling links on hover */
+.nav-link:hover {
+  background-color: #555;
+}
+
+/* Rules to ensure navigation bar spans full width */
+.navbar::after {
+  content: "";
+  display: table;
+  clear: both;
 }
