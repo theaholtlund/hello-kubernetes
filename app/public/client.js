@@ -79,7 +79,11 @@ document.getElementById("greetingForm").addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then((newGreeting) => {
       fetchAndDisplayGreetings();
-      document.getElementById("greetingForm").reset();
+      document.getElementById("greetingTitle").value = ""; // Clear input field
+      document.getElementById("greetingContent").value = ""; // Clear input field
+    })
+    .catch((error) => {
+      console.error("Error adding greeting:", error);
     });
 });
 
