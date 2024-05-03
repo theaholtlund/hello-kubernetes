@@ -59,5 +59,63 @@ function deleteGreeting(greetingId) {
     });
 }
 
+// Function to update replica count display
+function updateReplicaCount(replicaCount) {
+  document.getElementById("replicaCount").textContent = replicaCount;
+}
+
+// Function to scale up, increase the replica count
+function scaleUp() {
+  fetch("/api/scaleUp", { method: "POST" })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Failed to scale up");
+      }
+    })
+    .then((data) => {
+      updateReplicaCount(data.replicaCount);
+      alert(data.message);
+    })
+    .catch((error) => console.error("Error scaling up:", error));
+}
+
+// Function to scale down, decrease the replica count
+function scaleDown() {
+  fetch("/api/scaleDown", { method: "POST" })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Failed to scale down");
+      }
+    })
+    .then((data) => {
+      updateReplicaCount(data.replicaCount);
+      alert(data.message);
+    })
+    .catch((error) => console.error("Error scaling down:", error));
+}
+
+// Function to initialise the scaling simulation
+function initialiseScaling() {
+  fetch("/api/replicaCount")
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Failed to fetch replica count");
+      }
+    })
+    .then((data) => {
+      updateReplicaCount(data.replicaCount);
+    })
+    .catch((error) => console.error("Error initialising scaling:", error));
+}
+
+// Call the initialiseScaling function when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", initialiseScaling);
+
 // Initial fetch and display of greetings on page load
 fetchAndDisplayGreetings();
