@@ -14,6 +14,14 @@
       <a href="/scaling" class="nav-link">Kubernetes Scaling</a>
     </div>
 
+    <!-- Scaling section -->
+    <div class="container">
+      <h2 class="heading">Kubernetes Scaling Simulation</h2>
+      <p>Current replica count: <span id="replicaCount">3</span></p>
+      <button onclick="scaleUp()" class="button">Scale Up</button>
+      <button onclick="scaleDown()" class="button">Scale Down</button>
+    </div>
+
     <script src="client.js"></script>
   </body>
 </html>
