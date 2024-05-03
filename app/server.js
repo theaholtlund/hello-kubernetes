@@ -30,6 +30,11 @@ app.get("/currentdatetime", (req, res) => {
   res.json({ datetime: currentDate });
 });
 
+// Define route handler for scaling page
+app.get("/scaling", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "scaling.html"));
+});
+
 // Array to store greetings data
 let greetings = [];
 
@@ -64,6 +69,32 @@ app.delete("/api/greetings/:id", (req, res) => {
   const id = parseInt(req.params.id);
   greetings = greetings.filter((greeting) => greeting.id !== id);
   res.sendStatus(204);
+});
+
+// Array to store simulated replica count
+let appState = {
+  replicaCount: 3,
+};
+
+// Route handler to get current replica count
+app.get("/api/replicaCount", (req, res) => {
+  res.json({ replicaCount: appState.replicaCount });
+});
+
+// Route handler to scale up, increase the replica count
+app.post("/api/scaleUp", (req, res) => {
+  appState.replicaCount++;
+  res.json({ message: "Scaled up!", replicaCount: appState.replicaCount });
+});
+
+// Route handler to scale down, decrease the replica count
+app.post("/api/scaleDown", (req, res) => {
+  if (appState.replicaCount > 1) {
+    appState.replicaCount--;
+    res.json({ message: "Scaled down!", replicaCount: appState.replicaCount });
+  } else {
+    res.status(400).json({ error: "Cannot scale below 1 replica!" });
+  }
 });
 
 // Start app, callback function for when application starts
