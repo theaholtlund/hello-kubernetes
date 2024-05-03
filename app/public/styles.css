@@ -56,6 +56,11 @@ p {
   border: 1px solid #333;
 }
 
+/* Rules for styling general button hover */
+.button:hover {
+  background-color: #ff8b19;
+}
+
 /* Rules for styling datetime value */
 .datetime-value {
   font-size: 20px;
