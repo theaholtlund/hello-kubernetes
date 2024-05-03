@@ -88,14 +88,23 @@ function scaleDown() {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error("Failed to scale down");
+        return response.json().then((data) => {
+          throw new Error(data.error); // Throw error with specific message
+        });
       }
     })
     .then((data) => {
       updateReplicaCount(data.replicaCount);
       alert(data.message);
     })
-    .catch((error) => console.error("Error scaling down:", error));
+    .catch((error) => {
+      console.error("Error scaling down:", error);
+      if (error.message === "Cannot scale replica count below 1!") {
+        alert(error.message);
+      } else {
+        alert("Failed to scale down: " + error.message); // General error message
+      }
+    });
 }
 
 // Function to initialise the scaling simulation
