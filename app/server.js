@@ -30,9 +30,9 @@ app.get("/currentdatetime", (req, res) => {
   res.json({ datetime: currentDate });
 });
 
-// Define route handler for scaling page
-app.get("/scaling", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "scaling.html"));
+// Define route handler for Kubernetes page
+app.get("/kubernetes", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "kubernetes.html"));
 });
 
 // Array to store greetings data
