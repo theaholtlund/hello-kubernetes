@@ -125,3 +125,10 @@ p {
   display: table;
   clear: both;
 }
+
+/* Rules for styling replica visualisations */
+.package-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+}
