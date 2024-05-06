@@ -59,9 +59,19 @@ function deleteGreeting(greetingId) {
     });
 }
 
-// Function to update replica count display
+// Function to update replica count display and visualisation
 function updateReplicaCount(replicaCount) {
   document.getElementById("replicaCount").textContent = replicaCount;
+
+  const replicaVisualisation = document.getElementById("replicaVisualisation");
+  replicaVisualisation.innerHTML = "";
+
+  for (let i = 0; i < replicaCount; i++) {
+    const packageImage = document.createElement("img");
+    packageImage.src = "graphics/package.png";
+    packageImage.className = "package-image";
+    replicaVisualisation.appendChild(packageImage);
+  }
 }
 
 // Function to scale up, increase the replica count
