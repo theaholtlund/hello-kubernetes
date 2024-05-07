@@ -130,5 +130,8 @@ p {
 .package-image {
   width: 50px;
   height: 50px;
-  margin-right: 5px;
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
 }
