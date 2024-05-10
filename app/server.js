@@ -24,12 +24,6 @@ app.get("/datetime", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "datetime.html"));
 });
 
-// Define route handler to get current date and time
-app.get("/currentdatetime", (req, res) => {
-  const currentDate = new Date().toLocaleString();
-  res.json({ datetime: currentDate });
-});
-
 // Define route handler for Kubernetes page
 app.get("/kubernetes", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "kubernetes.html"));
@@ -69,6 +63,14 @@ app.delete("/api/greetings/:id", (req, res) => {
   const id = parseInt(req.params.id);
   greetings = greetings.filter((greeting) => greeting.id !== id);
   res.sendStatus(204);
+});
+
+// Define route handler to get current date and time with timezone
+app.get("/currentdatetime", (req, res) => {
+  const currentDate = new Date();
+  const formattedDateTime = currentDate.toLocaleString();
+  const timezoneOffset = currentDate.getTimezoneOffset();
+  res.json({ datetime: formattedDateTime, timezoneOffset: timezoneOffset });
 });
 
 // Array to store simulated replica count
