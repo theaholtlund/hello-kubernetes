@@ -59,6 +59,51 @@ function deleteGreeting(greetingId) {
     });
 }
 
+// Function to fetch and display the current date and time
+function fetchAndDisplayCurrentDateTime() {
+  fetch("/currentdatetime")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch current datetime");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const serverDateTime = new Date(data.datetime);
+      const timezoneOffsetMinutes = data.timezoneOffset;
+
+      const clientDateTime = new Date(
+        serverDateTime.getTime() + timezoneOffsetMinutes * 60 * 1000
+      );
+
+      const dateTimeOptions = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        timeZoneName: "short",
+      };
+
+      const formattedDateTime = new Intl.DateTimeFormat(
+        navigator.language,
+        dateTimeOptions
+      ).format(clientDateTime);
+
+      const currentDateTimeElement = document.getElementById("currentDateTime");
+      if (currentDateTimeElement) {
+        currentDateTimeElement.textContent = formattedDateTime;
+      } else {
+        console.error("Element with id 'currentDateTime' not found.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching current datetime:", error);
+    });
+}
+
 // Function to update replica count display and visualisation
 function updateReplicaCount(replicaCount) {
   document.getElementById("replicaCount").textContent = replicaCount;
@@ -132,9 +177,3 @@ function initialiseScaling() {
     })
     .catch((error) => console.error("Error initialising scaling:", error));
 }
-
-// Call the initialiseScaling function when the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", initialiseScaling);
-
-// Initial fetch and display of greetings on page load
-fetchAndDisplayGreetings();
