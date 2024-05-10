@@ -67,10 +67,8 @@ app.delete("/api/greetings/:id", (req, res) => {
 
 // Define route handler to get current date and time with timezone
 app.get("/currentdatetime", (req, res) => {
-  const currentDate = new Date();
-  const formattedDateTime = currentDate.toLocaleString();
-  const timezoneOffset = currentDate.getTimezoneOffset();
-  res.json({ datetime: formattedDateTime, timezoneOffset: timezoneOffset });
+  const currentTimestamp = Date.now(); // Get current UTC timestamp
+  res.json({ timestamp: currentTimestamp });
 });
 
 // Array to store simulated replica count

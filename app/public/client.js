@@ -69,12 +69,9 @@ function fetchAndDisplayCurrentDateTime() {
       return response.json();
     })
     .then((data) => {
-      const serverDateTime = new Date(data.datetime);
-      const timezoneOffsetMinutes = data.timezoneOffset;
+      const serverTimestamp = data.timestamp;
 
-      const clientDateTime = new Date(
-        serverDateTime.getTime() + timezoneOffsetMinutes * 60 * 1000
-      );
+      const serverDateTime = new Date(serverTimestamp);
 
       const dateTimeOptions = {
         weekday: "long",
@@ -90,14 +87,10 @@ function fetchAndDisplayCurrentDateTime() {
       const formattedDateTime = new Intl.DateTimeFormat(
         navigator.language,
         dateTimeOptions
-      ).format(clientDateTime);
+      ).format(serverDateTime);
 
       const currentDateTimeElement = document.getElementById("currentDateTime");
-      if (currentDateTimeElement) {
-        currentDateTimeElement.textContent = formattedDateTime;
-      } else {
-        console.error("Element with id 'currentDateTime' not found.");
-      }
+      currentDateTimeElement.textContent = formattedDateTime;
     })
     .catch((error) => {
       console.error("Error fetching current datetime:", error);
