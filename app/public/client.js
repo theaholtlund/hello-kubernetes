@@ -180,3 +180,23 @@ function initialiseScaling() {
     })
     .catch((error) => console.error("Error initialising scaling:", error));
 }
+
+// Handle event listeners on respective pages
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPath = window.location.pathname;
+
+  // Check if user is on the home page
+  if (currentPath === "/") {
+    fetchAndDisplayGreetings();
+  }
+
+  // Check if user is on the datetime page
+  if (currentPath === "/datetime") {
+    fetchAndDisplayCurrentDateTime();
+  }
+
+  // Check if user is on the Kubernetes page
+  if (currentPath === "/kubernetes") {
+    initialiseScaling();
+  }
+});
