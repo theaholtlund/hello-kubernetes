@@ -28,6 +28,13 @@ body {
   margin-bottom: 20px;
 }
 
+/* Rules for styling subheadings */
+.subheading {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
 /* Rules for styling footer section */
 .footer {
   background-color: #333;
@@ -97,6 +104,23 @@ p {
   height: auto;
   float: right;
   max-width: 10%;
+}
+
+/* Rules for styling quote container */
+.quote-container {
+  margin: 18px;
+  padding: 18px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Rules for styling quote text */
+.quote-text {
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  font-style: italic;
 }
 
 /* Rules for styling greeting title */
