@@ -106,6 +106,7 @@ function fetchAndDisplayCurrentDateTime() {
     });
 }
 
+// Function to fetch and display quote on time
 function fetchAndDisplayQuote() {
   fetch("https://api.quotable.io/random?tags=time")
     .then((response) => {
