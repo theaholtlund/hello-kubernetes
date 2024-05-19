@@ -118,7 +118,8 @@ p {
 /* Rules for styling quote text */
 .quote-text {
   font-size: 16px;
-  color: #333;
+  font-weight: bold;
+  color: #ffa64e;
   text-align: center;
   font-style: italic;
 }
