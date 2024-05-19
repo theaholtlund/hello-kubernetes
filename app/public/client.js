@@ -80,7 +80,6 @@ function fetchAndDisplayCurrentDateTime() {
     })
     .then((data) => {
       const serverTimestamp = data.timestamp;
-
       const serverDateTime = new Date(serverTimestamp);
 
       const dateTimeOptions = {
@@ -104,6 +103,25 @@ function fetchAndDisplayCurrentDateTime() {
     })
     .catch((error) => {
       console.error("Error fetching current datetime:", error);
+    });
+}
+
+function fetchAndDisplayQuote() {
+  fetch("https://api.quotable.io/random?tags=time")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch quote");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const quoteText = `"${data.content}" – ${data.author}`;
+      document.getElementById("quoteText").textContent = quoteText;
+    })
+    .catch((error) => {
+      console.error("Error fetching quote:", error);
+      document.getElementById("quoteText").textContent =
+        "Failed to fetch quote. Please try again later.";
     });
 }
 
@@ -193,6 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check if user is on the datetime page
   if (currentPath === "/datetime") {
     fetchAndDisplayCurrentDateTime();
+    fetchAndDisplayQuote();
   }
 
   // Check if user is on the Kubernetes page
