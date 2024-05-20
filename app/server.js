@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Define route handler for default home page
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "homepage.html"));
 });
 
 // Define route handler for datetime page
