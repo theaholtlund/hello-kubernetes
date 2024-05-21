@@ -12,11 +12,7 @@ function fetchAndDisplayLocalTime() {
     .then((data) => {
       const localTimestamp = data.timestamp;
       const localDateTime = new Date(localTimestamp);
-      const options = { timeZoneName: "short" };
-      const localDateTimeString = localDateTime.toLocaleString(
-        "en-US",
-        options
-      );
+      const localDateTimeString = localDateTime.toLocaleString("en-US");
       const localDateTimeElement = document.getElementById("localDateTime");
       localDateTimeElement.textContent = localDateTimeString;
     })
@@ -37,7 +33,7 @@ function fetchAndDisplayGmtTime() {
     .then((data) => {
       const gmtTimestamp = data.timestamp;
       const gmtDateTime = new Date(gmtTimestamp);
-      const options = { timeZone: "GMT", timeZoneName: "short" };
+      const options = { timeZone: "GMT" };
       const gmtDateTimeString = gmtDateTime.toLocaleString("en-US", options);
       const gmtDateTimeElement = document.getElementById("gmtDateTime");
       gmtDateTimeElement.textContent = gmtDateTimeString;
@@ -69,7 +65,6 @@ function fetchAndDisplayQuote() {
 
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
-  // Check if user is on the datetime page
   if (window.location.pathname === "/datetime") {
     fetchAndDisplayLocalTime();
     fetchAndDisplayGmtTime();
