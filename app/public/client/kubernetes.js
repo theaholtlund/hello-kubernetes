@@ -96,10 +96,7 @@ function initialiseScaling() {
 
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
-  const currentPath = window.location.pathname;
-
-  // Check if user is on the Kubernetes page
-  if (currentPath === "/kubernetes") {
+  if (window.location.pathname === "/kubernetes") {
     initialiseScaling();
   }
 });

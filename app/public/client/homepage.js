@@ -73,10 +73,7 @@ function deleteGreeting(greetingId) {
 
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
-  const currentPath = window.location.pathname;
-
-  // Check if user is on the home page
-  if (currentPath === "/") {
+  if (window.location.pathname === "/") {
     fetchAndDisplayGreetings();
   }
 });
