@@ -1,36 +1,49 @@
 // Client-side functionality for the date and time page
 
-// Function to fetch and display the current date and time
-function fetchAndDisplayCurrentDateTime() {
+// Function to fetch and display the current date and time in the user's local timezone
+function fetchAndDisplayLocalTime() {
   fetch("/currentdatetime")
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Failed to fetch current datetime");
+        throw new Error("Failed to fetch local datetime");
       }
       return response.json();
     })
     .then((data) => {
-      const serverTimestamp = data.timestamp;
-      const serverDateTime = new Date(serverTimestamp);
-
-      const dateTimeOptions = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        second: "numeric",
-        timeZoneName: "short",
-      };
-
-      document.getElementById("currentDateTime").textContent =
-        new Intl.DateTimeFormat(navigator.language, dateTimeOptions).format(
-          serverDateTime
-        );
+      const localTimestamp = data.timestamp;
+      const localDateTime = new Date(localTimestamp);
+      const options = { timeZoneName: "short" };
+      const localDateTimeString = localDateTime.toLocaleString(
+        "en-US",
+        options
+      );
+      const localDateTimeElement = document.getElementById("localDateTime");
+      localDateTimeElement.textContent = localDateTimeString;
     })
     .catch((error) => {
-      console.error("Error fetching current datetime:", error);
+      console.error("Error fetching local datetime:", error);
+    });
+}
+
+// Function to fetch and display the current date and time in Greenwich Mean Time (GMT)
+function fetchAndDisplayGmtTime() {
+  fetch("/currentdatetime?timezone=GMT")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch GMT datetime");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const gmtTimestamp = data.timestamp;
+      const gmtDateTime = new Date(gmtTimestamp);
+      const options = { timeZone: "GMT", timeZoneName: "short" };
+      const gmtDateTimeString = gmtDateTime.toLocaleString("en-US", options);
+      const gmtDateTimeElement = document.getElementById("gmtDateTime");
+      gmtDateTimeElement.textContent = gmtDateTimeString;
+    })
+    .catch((error) => {
+      console.error("Error fetching GMT datetime:", error);
     });
 }
 
@@ -44,9 +57,8 @@ function fetchAndDisplayQuote() {
       return response.json();
     })
     .then((data) => {
-      document.getElementById(
-        "quoteText"
-      ).textContent = `"${data.content}" – ${data.author}`;
+      const quoteText = `"${data.content}" – ${data.author}`;
+      document.getElementById("quoteText").textContent = quoteText;
     })
     .catch((error) => {
       console.error("Error fetching quote:", error);
@@ -57,8 +69,10 @@ function fetchAndDisplayQuote() {
 
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
+  // Check if user is on the datetime page
   if (window.location.pathname === "/datetime") {
-    fetchAndDisplayCurrentDateTime();
+    fetchAndDisplayLocalTime();
+    fetchAndDisplayGmtTime();
     fetchAndDisplayQuote();
   }
 });
