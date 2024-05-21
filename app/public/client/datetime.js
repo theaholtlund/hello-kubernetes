@@ -24,13 +24,10 @@ function fetchAndDisplayCurrentDateTime() {
         timeZoneName: "short",
       };
 
-      const formattedDateTime = new Intl.DateTimeFormat(
-        navigator.language,
-        dateTimeOptions
-      ).format(serverDateTime);
-
-      const currentDateTimeElement = document.getElementById("currentDateTime");
-      currentDateTimeElement.textContent = formattedDateTime;
+      document.getElementById("currentDateTime").textContent =
+        new Intl.DateTimeFormat(navigator.language, dateTimeOptions).format(
+          serverDateTime
+        );
     })
     .catch((error) => {
       console.error("Error fetching current datetime:", error);
@@ -47,8 +44,9 @@ function fetchAndDisplayQuote() {
       return response.json();
     })
     .then((data) => {
-      const quoteText = `"${data.content}" – ${data.author}`;
-      document.getElementById("quoteText").textContent = quoteText;
+      document.getElementById(
+        "quoteText"
+      ).textContent = `"${data.content}" – ${data.author}`;
     })
     .catch((error) => {
       console.error("Error fetching quote:", error);
@@ -59,10 +57,7 @@ function fetchAndDisplayQuote() {
 
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
-  const currentPath = window.location.pathname;
-
-  // Check if user is on the datetime page
-  if (currentPath === "/datetime") {
+  if (window.location.pathname === "/datetime") {
     fetchAndDisplayCurrentDateTime();
     fetchAndDisplayQuote();
   }
