@@ -25,34 +25,25 @@ function fetchAndDisplayGreetings() {
     });
 }
 
-// Handle form submission to add a new greeting
-document.addEventListener("DOMContentLoaded", () => {
-  const currentPath = window.location.pathname;
+// Function to handle form submission to add a new greeting
+function handleGreetingFormSubmission(event) {
+  event.preventDefault();
+  const title = document.getElementById("greetingTitle").value;
+  const content = document.getElementById("greetingContent").value;
 
-  // Check if the user is on the home page
-  if (currentPath === "/") {
-    document
-      .getElementById("greetingForm")
-      .addEventListener("submit", (event) => {
-        event.preventDefault();
-        const title = document.getElementById("greetingTitle").value;
-        const content = document.getElementById("greetingContent").value;
-
-        fetch("/api/greetings", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ title, content }),
-        })
-          .then((response) => response.json())
-          .then((newGreeting) => {
-            fetchAndDisplayGreetings();
-            document.getElementById("greetingForm").reset();
-          });
-      });
-  }
-});
+  fetch("/api/greetings", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title, content }),
+  })
+    .then((response) => response.json())
+    .then((newGreeting) => {
+      fetchAndDisplayGreetings();
+      document.getElementById("greetingForm").reset();
+    });
+}
 
 // Function to delete a greeting
 function deleteGreeting(greetingId) {
@@ -75,5 +66,9 @@ function deleteGreeting(greetingId) {
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/") {
     fetchAndDisplayGreetings();
+    // Attach the form submission handler
+    document
+      .getElementById("greetingForm")
+      .addEventListener("submit", handleGreetingFormSubmission);
   }
 });
