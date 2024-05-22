@@ -4,10 +4,10 @@
 function createGreetingElement(greeting) {
   const greetingElement = document.createElement("div");
   greetingElement.innerHTML = `
-          <h3 class="greeting-title">${greeting.title}</h3>
-          <p class="greeting-text">${greeting.content}</p>
-          <button onclick="deleteGreeting(${greeting.id})" class="button">Delete</button>
-      `;
+    <h3 class="greeting-title">${greeting.title}</h3>
+    <p class="greeting-text">${greeting.content}</p>
+    <button onclick="deleteGreeting(${greeting.id})" class="button">Delete</button>
+  `;
   return greetingElement;
 }
 
@@ -18,10 +18,9 @@ function fetchAndDisplayGreetings() {
     .then((greetings) => {
       const greetingsList = document.getElementById("greetingsList");
       greetingsList.innerHTML = "";
-      greetings.forEach((greeting) => {
-        const greetingElement = createGreetingElement(greeting);
-        greetingsList.appendChild(greetingElement);
-      });
+      greetings.forEach((greeting) =>
+        greetingsList.appendChild(createGreetingElement(greeting))
+      );
     });
 }
 
@@ -33,13 +32,11 @@ function handleGreetingFormSubmission(event) {
 
   fetch("/api/greetings", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title, content }),
   })
     .then((response) => response.json())
-    .then((newGreeting) => {
+    .then(() => {
       fetchAndDisplayGreetings();
       document.getElementById("greetingForm").reset();
     });
@@ -47,19 +44,13 @@ function handleGreetingFormSubmission(event) {
 
 // Function to delete a greeting
 function deleteGreeting(greetingId) {
-  fetch(`/api/greetings/${greetingId}`, {
-    method: "DELETE",
-  })
-    .then((response) => {
-      if (response.ok) {
-        fetchAndDisplayGreetings();
-      } else {
-        console.error("Failed to delete greeting");
-      }
-    })
-    .catch((error) => {
-      console.error("Error deleting greeting:", error);
-    });
+  fetch(`/api/greetings/${greetingId}`, { method: "DELETE" })
+    .then((response) =>
+      response.ok
+        ? fetchAndDisplayGreetings()
+        : console.error("Failed to delete greeting")
+    )
+    .catch((error) => console.error("Error deleting greeting:", error));
 }
 
 // Handle event listeners on respective pages
