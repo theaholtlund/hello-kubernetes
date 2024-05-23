@@ -105,10 +105,10 @@ function checkAnswer(questionId, selectedAnswer) {
   const feedbackElement = document.getElementById(`${questionId}-feedback`);
 
   if (selectedAnswer === answers[questionId]) {
-    feedbackElement.textContent = "Correct!";
+    feedbackElement.textContent = "Correct! Well done!";
     feedbackElement.style.color = "green";
   } else {
-    feedbackElement.textContent = "Incorrect. Try again.";
+    feedbackElement.textContent = "Incorrect. Please try again.";
     feedbackElement.style.color = "red";
   }
 }

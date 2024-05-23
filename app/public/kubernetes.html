@@ -39,25 +39,11 @@
       </p>
     </div>
 
-    <!-- Replica scaling section -->
-    <div class="container">
-      <h2 class="heading">Kubernetes Scaling Simulation</h2>
-      <p>
-        This section is intended to learn about Kubernetes scaling in an
-        interactive way, with visual representations for replicas as the
-        application is scaled up and down.
-      </p>
-      <p>Current replica count: <span id="replicaCount"></span></p>
-      <button onclick="scaleUp()" class="button">Scale Up</button>
-      <button onclick="scaleDown()" class="button">Scale Down</button>
-      <div id="replicaVisualisation"></div>
-    </div>
-
     <!-- Kubernetes learning activity section -->
     <div class="container">
       <h2 class="heading">Kubernetes Components Quiz</h2>
       <p>
-        Test your knowledge about key Kubernetes components. Select the correct
+        Test your knowledge on key Kubernetes components. Select the correct
         answer for each question.
       </p>
       <div id="quiz">
@@ -106,6 +92,20 @@
           <p id="q3-feedback" class="feedback"></p>
         </div>
       </div>
+    </div>
+
+    <!-- Replica scaling section -->
+    <div class="container">
+      <h2 class="heading">Kubernetes Scaling Simulation</h2>
+      <p>
+        This section is intended to learn about Kubernetes scaling in an
+        interactive way, with visual representations for replicas as the
+        application is scaled up and down.
+      </p>
+      <p>Current replica count: <span id="replicaCount"></span></p>
+      <button onclick="scaleUp()" class="button">Scale Up</button>
+      <button onclick="scaleDown()" class="button">Scale Down</button>
+      <div id="replicaVisualisation"></div>
     </div>
 
     <!-- Footer section -->
