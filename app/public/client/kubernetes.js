@@ -94,6 +94,25 @@ function initialiseScaling() {
     .catch((error) => console.error("Error initialising scaling:", error));
 }
 
+// Function to check the answer for quiz questions
+function checkAnswer(questionId, selectedAnswer) {
+  const answers = {
+    q1: "a",
+    q2: "b",
+    q3: "a",
+  };
+
+  const feedbackElement = document.getElementById(`${questionId}-feedback`);
+
+  if (selectedAnswer === answers[questionId]) {
+    feedbackElement.textContent = "Correct!";
+    feedbackElement.style.color = "green";
+  } else {
+    feedbackElement.textContent = "Incorrect. Try again.";
+    feedbackElement.style.color = "red";
+  }
+}
+
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/kubernetes") {

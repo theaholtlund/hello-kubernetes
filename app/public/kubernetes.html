@@ -53,6 +53,61 @@
       <div id="replicaVisualisation"></div>
     </div>
 
+    <!-- Kubernetes learning activity section -->
+    <div class="container">
+      <h2 class="heading">Kubernetes Components Quiz</h2>
+      <p>
+        Test your knowledge about key Kubernetes components. Select the correct
+        answer for each question.
+      </p>
+      <div id="quiz">
+        <div class="question">
+          <p><strong>1. What is a Pod in Kubernetes?</strong></p>
+          <button onclick="checkAnswer('q1', 'a')">
+            A. A group of containers
+          </button>
+          <button onclick="checkAnswer('q1', 'b')">B. A type of service</button>
+          <button onclick="checkAnswer('q1', 'c')">
+            C. A type of deployment
+          </button>
+          <p id="q1-feedback" class="feedback"></p>
+        </div>
+        <div class="question">
+          <p>
+            <strong
+              >2. What is the primary purpose of a Service in
+              Kubernetes?</strong
+            >
+          </p>
+          <button onclick="checkAnswer('q2', 'a')">
+            A. To deploy applications
+          </button>
+          <button onclick="checkAnswer('q2', 'b')">
+            B. To expose an application to the network
+          </button>
+          <button onclick="checkAnswer('q2', 'c')">
+            C. To manage container logs
+          </button>
+          <p id="q2-feedback" class="feedback"></p>
+        </div>
+        <div class="question">
+          <p>
+            <strong>3. What is a Deployment in Kubernetes used for?</strong>
+          </p>
+          <button onclick="checkAnswer('q3', 'a')">
+            A. To manage the desired state of a Pod
+          </button>
+          <button onclick="checkAnswer('q3', 'b')">
+            B. To store configuration data
+          </button>
+          <button onclick="checkAnswer('q3', 'c')">
+            C. To handle network traffic
+          </button>
+          <p id="q3-feedback" class="feedback"></p>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer section -->
     <footer class="footer">
       <p>This app was created by Thea Holtlund Jacobsen</p>
