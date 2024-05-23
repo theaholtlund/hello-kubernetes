@@ -113,9 +113,25 @@ function checkAnswer(questionId, selectedAnswer) {
   }
 }
 
+// Function to load the quiz content dynamically
+function loadQuiz() {
+  fetch("kubernetes-quiz.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to load quiz");
+      }
+      return response.text();
+    })
+    .then((html) => {
+      document.getElementById("quiz-container").innerHTML = html;
+    })
+    .catch((error) => console.error("Error loading quiz:", error));
+}
+
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/kubernetes") {
     initialiseScaling();
+    loadQuiz();
   }
 });
