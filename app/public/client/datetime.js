@@ -45,7 +45,7 @@ function fetchAndDisplayGmtTime() {
 
 // Function to fetch and display quote on time
 function fetchAndDisplayQuote() {
-  fetch("https://api.quotable.io/random?tags=time")
+  fetch("/quote")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Failed to fetch quote");

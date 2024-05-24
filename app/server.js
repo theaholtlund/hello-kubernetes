@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const fetch = require("node-fetch");
 
 // Create Express instance, and define port
 const app = express();
@@ -95,6 +96,33 @@ app.post("/api/scaleDown", (req, res) => {
   } else {
     res.status(400).json({ error: "Cannot scale below 1 replica!" });
   }
+});
+
+// Quote cache and refresh interval, as quote is
+let cachedQuote = { content: "Fetching quote...", author: "" };
+const refreshInterval = 3600000; // 1 hour in milliseconds
+
+async function fetchQuote() {
+  try {
+    const response = await fetch("https://api.quotable.io/random?tags=time");
+    if (response.ok) {
+      const data = await response.json();
+      cachedQuote = { content: data.content, author: data.author };
+    } else {
+      console.error("Failed to fetch quote");
+    }
+  } catch (error) {
+    console.error("Error fetching quote:", error);
+  }
+}
+
+// Initial fetch and set interval for refreshing the quote
+fetchQuote();
+setInterval(fetchQuote, refreshInterval);
+
+// Route handler to get the cached quote
+app.get("/quote", (req, res) => {
+  res.json(cachedQuote);
 });
 
 // Start app, callback function for when application starts
