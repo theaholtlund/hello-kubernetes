@@ -1,6 +1,6 @@
 // Client-side functionality for the date and time page
 
-// Function to fetch and display the current date and time in the user's local timezone
+// Function to fetch and display the user's local current date and time
 function fetchAndDisplayLocalTime() {
   fetch("/currentdatetime")
     .then((response) => {
@@ -21,7 +21,7 @@ function fetchAndDisplayLocalTime() {
     });
 }
 
-// Function to fetch and display the current date and time in Greenwich Mean Time (GMT)
+// Function to fetch and display the current date and time in GMT
 function fetchAndDisplayGmtTime() {
   fetch("/currentdatetime?timezone=GMT")
     .then((response) => {
