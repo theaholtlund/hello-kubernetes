@@ -1,4 +1,6 @@
-/* General styling rules */
+/* General style sheet */
+
+/* Rules for styling general layout */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -126,33 +128,4 @@ p {
   height: 50px;
   margin: 15px 15px 15px 0;
   display: inline-block;
-}
-
-/* Rules for styling navigation bar */
-.navbar {
-  background-color: #333;
-  overflow: hidden;
-}
-
-/* Rules for styling navigation links */
-.nav-link {
-  float: left;
-  display: block;
-  color: #fff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-/* Rules for styling links on hover */
-.nav-link:hover {
-  background-color: #ff8b19;
-}
-
-/* Rules to ensure navigation bar spans full width */
-.navbar::after {
-  content: "";
-  display: table;
-  clear: both;
 }
