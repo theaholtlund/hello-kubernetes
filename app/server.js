@@ -98,9 +98,9 @@ app.post("/api/scaleDown", (req, res) => {
   }
 });
 
-// Quote cache and refresh interval, as quote is
+// Quote cache and refresh interval, as quote is slow to load
 let cachedQuote = { content: "Fetching quote...", author: "" };
-const refreshInterval = 3600000; // 1 hour in milliseconds
+const refreshInterval = 3600000; // One hour in milliseconds
 
 async function fetchQuote() {
   try {
@@ -109,7 +109,7 @@ async function fetchQuote() {
       const data = await response.json();
       cachedQuote = { content: data.content, author: data.author };
     } else {
-      console.error("Failed to fetch quote");
+      console.error(`Failed to fetch quote: ${response.statusText}`);
     }
   } catch (error) {
     console.error("Error fetching quote:", error);
