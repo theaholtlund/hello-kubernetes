@@ -1,0 +1,42 @@
+/* Rules for styling general buttons */
+.button {
+  margin: 5px;
+  padding: 10px 40px;
+  background-color: #ffa64e;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #333;
+  cursor: pointer;
+}
+
+/* Rules for styling general button hover */
+.button:hover {
+  background-color: #ff8b19;
+}
+
+/* Rules for styling quiz buttons */
+.quiz-button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px 20px;
+  background-color: #ffb86e;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #333;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Rules for styling quiz button hover */
+.quiz-button:hover {
+  background-color: #ffa64e;
+}
+
+/* Rules for styling quiz feedback */
+.feedback {
+  margin-top: 10px;
+  font-weight: bold;
+}
