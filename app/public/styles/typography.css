@@ -1,0 +1,50 @@
+/* Style sheet for text values */
+
+/* Rules for styling general headings */
+.heading {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Rules for styling subheadings */
+.subheading {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Rules for styling general paragraphs */
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Rules for styling datetime value */
+.datetime-value {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffa64e;
+}
+
+/* Rules for styling quote text */
+.quote-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffa64e;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Rules for styling greeting title */
+.greeting-title {
+  font-size: 20px;
+  color: #ff8b19;
+}
+
+/* Rules for styling greeting text */
+.greeting-text {
+  font-size: 16px;
+  color: #333;
+}
