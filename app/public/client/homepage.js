@@ -6,6 +6,7 @@ function createGreetingElement(greeting) {
   greetingElement.innerHTML = `
     <h3 class="greeting-title">${greeting.title}</h3>
     <p class="greeting-text">${greeting.content}</p>
+    <button onclick="editGreeting(${greeting.id})" class="button">Edit</button>
     <button onclick="deleteGreeting(${greeting.id})" class="button">Delete</button>
   `;
   return greetingElement;
@@ -40,6 +41,21 @@ function handleGreetingFormSubmission(event) {
       fetchAndDisplayGreetings();
       document.getElementById("greetingForm").reset();
     });
+}
+
+// Function to handle greeting editing
+function editGreeting(greetingId) {
+  const title = prompt("Enter new title:");
+  const content = prompt("Enter new content:");
+  if (title && content) {
+    fetch(`/api/greetings/${greetingId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title, content }),
+    })
+      .then((response) => response.json())
+      .then(() => fetchAndDisplayGreetings());
+  }
 }
 
 // Function to delete a greeting
