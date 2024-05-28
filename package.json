@@ -19,6 +19,6 @@
   "homepage": "https://github.com/theaholtlund/hello-kubernetes#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.7.0"
   }
 }
