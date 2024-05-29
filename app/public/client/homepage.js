@@ -45,13 +45,21 @@ function handleGreetingFormSubmission(event) {
 
 // Function to handle greeting editing
 function editGreeting(greetingId) {
-  const title = prompt("Enter new title:");
-  const content = prompt("Enter new content:");
+  let title = "";
+  let content = "";
 
-  // Quality check to ensure title and content are not empty
-  if (!title || !content) {
-    alert("Both title and content are required to edit the greeting.");
-    return; // Exit the function if validation fails
+  while (!title) {
+    title = prompt("Enter new title:");
+    if (!title) {
+      alert("Title cannot be empty. Please enter a title.");
+    }
+  }
+
+  while (!content) {
+    content = prompt("Enter new content:");
+    if (!content) {
+      alert("Content cannot be empty. Please enter content.");
+    }
   }
 
   fetch(`/api/greetings/${greetingId}`, {
