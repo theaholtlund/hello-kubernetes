@@ -47,15 +47,20 @@ function handleGreetingFormSubmission(event) {
 function editGreeting(greetingId) {
   const title = prompt("Enter new title:");
   const content = prompt("Enter new content:");
-  if (title && content) {
-    fetch(`/api/greetings/${greetingId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, content }),
-    })
-      .then((response) => response.json())
-      .then(() => fetchAndDisplayGreetings());
+
+  // Quality check to ensure title and content are not empty
+  if (!title || !content) {
+    alert("Both title and content are required to edit the greeting.");
+    return; // Exit the function if validation fails
   }
+
+  fetch(`/api/greetings/${greetingId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title, content }),
+  })
+    .then((response) => response.json())
+    .then(() => fetchAndDisplayGreetings());
 }
 
 // Function to delete a greeting
