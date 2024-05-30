@@ -103,5 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
     timezoneSelect.addEventListener("change", (event) => {
       fetchAndDisplayTimezoneTime(event.target.value);
     });
+
+    // Fetch initial time for the default selected timezone
+    fetchAndDisplayTimezoneTime(timezoneSelect.value);
   }
 });

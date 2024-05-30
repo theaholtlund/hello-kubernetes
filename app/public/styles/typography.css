@@ -48,3 +48,11 @@ p {
   font-size: 16px;
   color: #333;
 }
+
+/* Rules for styling timezone text */
+.timezone-label {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+  font-weight: bold;
+}
