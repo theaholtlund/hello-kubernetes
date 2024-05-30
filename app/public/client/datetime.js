@@ -12,7 +12,11 @@ function fetchAndDisplayLocalTime() {
     .then((data) => {
       const localTimestamp = data.timestamp;
       const localDateTime = new Date(localTimestamp);
-      const localDateTimeString = localDateTime.toLocaleString("en-US");
+      const options = { hour12: false };
+      const localDateTimeString = localDateTime.toLocaleString(
+        "en-US",
+        options
+      );
       const localDateTimeElement = document.getElementById("localDateTime");
       localDateTimeElement.textContent = localDateTimeString;
     })
@@ -33,7 +37,7 @@ function fetchAndDisplayGmtTime() {
     .then((data) => {
       const gmtTimestamp = data.timestamp;
       const gmtDateTime = new Date(gmtTimestamp);
-      const options = { timeZone: "GMT" };
+      const options = { timeZone: "GMT", hour12: false }; // Use 24-hour format
       const gmtDateTimeString = gmtDateTime.toLocaleString("en-US", options);
       const gmtDateTimeElement = document.getElementById("gmtDateTime");
       gmtDateTimeElement.textContent = gmtDateTimeString;
