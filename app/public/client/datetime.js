@@ -67,11 +67,41 @@ function fetchAndDisplayQuote() {
     });
 }
 
+// Function to fetch and display the current time in the selected timezone
+function fetchAndDisplayTimezoneTime(timezone) {
+  fetch(`/currentdatetime?timezone=${timezone}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch timezone datetime");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const timezoneTimestamp = data.timestamp;
+      const timezoneDateTime = new Date(timezoneTimestamp);
+      const options = { timeZone: timezone, hour12: false };
+      const timezoneDateTimeString = timezoneDateTime.toLocaleString(
+        "en-US",
+        options
+      );
+      const timezoneTimeElement = document.getElementById("timezoneTime");
+      timezoneTimeElement.textContent = timezoneDateTimeString;
+    })
+    .catch((error) => {
+      console.error("Error fetching timezone datetime:", error);
+    });
+}
+
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/datetime") {
     fetchAndDisplayLocalTime();
     fetchAndDisplayGmtTime();
     fetchAndDisplayQuote();
+
+    const timezoneSelect = document.getElementById("timezoneSelect");
+    timezoneSelect.addEventListener("change", (event) => {
+      fetchAndDisplayTimezoneTime(event.target.value);
+    });
   }
 });
