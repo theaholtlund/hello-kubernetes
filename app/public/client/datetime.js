@@ -92,19 +92,22 @@ function fetchAndDisplayTimezoneTime(timezone) {
     });
 }
 
+// Function to initialise timezone select event listener
+function initialiseTimezoneSelect() {
+  const timezoneSelect = document.getElementById("timezoneSelect");
+  timezoneSelect.addEventListener("change", (event) => {
+    fetchAndDisplayTimezoneTime(event.target.value);
+  });
+
+  fetchAndDisplayTimezoneTime(timezoneSelect.value);
+}
+
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/datetime") {
     fetchAndDisplayLocalTime();
     fetchAndDisplayGmtTime();
     fetchAndDisplayQuote();
-
-    const timezoneSelect = document.getElementById("timezoneSelect");
-    timezoneSelect.addEventListener("change", (event) => {
-      fetchAndDisplayTimezoneTime(event.target.value);
-    });
-
-    // Fetch initial time for the default selected timezone
-    fetchAndDisplayTimezoneTime(timezoneSelect.value);
+    initialiseTimezoneSelect();
   }
 });
