@@ -79,3 +79,12 @@ body {
   padding: 20px;
   flex-shrink: 0;
 }
+
+/* Rules for styling time zone select */
+.timezone-select {
+  margin: 10px 0;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  font-size: 16px;
+}

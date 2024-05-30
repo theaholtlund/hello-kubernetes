@@ -20,7 +20,7 @@ p {
   line-height: 1.6;
 }
 
-/* Rules for styling datetime value */
+/* Rules for styling date and time value */
 .datetime-value {
   font-size: 20px;
   text-align: center;
@@ -55,4 +55,18 @@ p {
   color: #333;
   margin: 10px 0;
   font-weight: bold;
+}
+
+/* Rules for styling time zone text */
+.timezone-text {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Rules for styling time zone value */
+.timezone-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffa64e;
+  text-align: center;
 }
