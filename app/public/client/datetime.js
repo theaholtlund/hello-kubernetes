@@ -17,7 +17,7 @@ function fetchAndDisplayLocalTime() {
         weekday: "long",
       });
       const localDateTimeString =
-        dayOfWeek + ", " + localDateTime.toLocaleString("en-US", options);
+        dayOfWeek + " " + localDateTime.toLocaleString("en-US", options);
       const localDateTimeElement = document.getElementById("localDateTime");
       localDateTimeElement.textContent = localDateTimeString;
     })
@@ -44,7 +44,7 @@ function fetchAndDisplayGmtTime() {
         timeZone: "GMT",
       });
       const gmtDateTimeString =
-        dayOfWeek + ", " + gmtDateTime.toLocaleString("en-US", options);
+        dayOfWeek + " " + gmtDateTime.toLocaleString("en-US", options);
       const gmtDateTimeElement = document.getElementById("gmtDateTime");
       gmtDateTimeElement.textContent = gmtDateTimeString;
     })
@@ -90,7 +90,7 @@ function fetchAndDisplayTimezoneTime(timezone) {
         weekday: "long",
       });
       const timezoneDateTimeString =
-        dayOfWeek + ", " + timezoneDateTime.toLocaleString("en-US", options);
+        dayOfWeek + " " + timezoneDateTime.toLocaleString("en-US", options);
       const timezoneTimeElement = document.getElementById("timezoneTime");
       timezoneTimeElement.textContent = timezoneDateTimeString;
     })
