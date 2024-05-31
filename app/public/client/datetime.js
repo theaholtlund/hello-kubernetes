@@ -67,7 +67,7 @@ function fetchAndDisplayQuote() {
     });
 }
 
-// Function to fetch and display the current time in the selected timezone
+// Function to fetch and display the current time in the selected time zone
 function fetchAndDisplayTimezoneTime(timezone) {
   fetch(`/currentdatetime?timezone=${timezone}`)
     .then((response) => {
@@ -80,10 +80,11 @@ function fetchAndDisplayTimezoneTime(timezone) {
       const timezoneTimestamp = data.timestamp;
       const timezoneDateTime = new Date(timezoneTimestamp);
       const options = { timeZone: timezone, hour12: false };
-      const timezoneDateTimeString = timezoneDateTime.toLocaleString(
-        "en-US",
-        options
-      );
+      const dayOfWeek = timezoneDateTime.toLocaleString("en-US", {
+        weekday: "long",
+      });
+      const timezoneDateTimeString =
+        dayOfWeek + ", " + timezoneDateTime.toLocaleString("en-US", options);
       const timezoneTimeElement = document.getElementById("timezoneTime");
       timezoneTimeElement.textContent = timezoneDateTimeString;
     })
@@ -92,7 +93,7 @@ function fetchAndDisplayTimezoneTime(timezone) {
     });
 }
 
-// Function to initialise timezone select event listener
+// Function to initialise time zone select event listener
 function initialiseTimezoneSelect() {
   const timezoneSelect = document.getElementById("timezoneSelect");
   timezoneSelect.addEventListener("change", (event) => {
