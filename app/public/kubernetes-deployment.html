@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My KubernetesApp</title>
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/containers.css" />
+    <link rel="stylesheet" href="styles/typography.css" />
+    <link rel="stylesheet" href="styles/buttons.css" />
+    <link rel="shortcut icon" href="graphics/favicon.ico" />
+  </head>
+  <body>
+    <!-- Navigation bar section -->
+    <div class="navbar">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/datetime" class="nav-link">Date and Time</a>
+      <a href="/kubernetes" class="nav-link">Kubernetes</a>
+      <a href="/deployment-strategies" class="nav-link"
+        >Deployment Strategies</a
+      >
+    </div>
+
+    <!-- Deployment strategies section -->
+    <div class="container">
+      <h1 class="heading">Kubernetes Deployment Strategies</h1>
+      <p>
+        Kubernetes offers several deployment strategies to ensure smooth updates
+        and minimal downtime. These strategies help in managing the lifecycle of
+        applications effectively.
+      </p>
+      <h2 class="heading">Rolling Updates</h2>
+      <p>
+        Rolling updates allow you to update your application gradually.
+        Kubernetes progressively replaces instances of the old version of your
+        application with the new version.
+      </p>
+
+      <h2 class="heading">Blue-Green Deployment</h2>
+      <p>
+        In a blue-green deployment, you create two separate environments: one
+        for the current version (blue) and one for the new version (green). Once
+        the green environment is ready, you switch the traffic from blue to
+        green.
+      </p>
+
+      <h2 class="heading">Canary Releases</h2>
+      <p>
+        Canary releases involve rolling out the update to a small subset of
+        users before rolling it out to the entire user base. This allows for
+        testing the update in a production environment with minimal risk.
+      </p>
+
+      <h2 class="heading">A/B Testing</h2>
+      <p>
+        A/B testing involves deploying two versions (A and B) simultaneously to
+        compare their performance. Traffic is split between the two versions,
+        and metrics are collected to determine the better-performing version.
+      </p>
+
+      <h2 class="heading">Shadow Testing</h2>
+      <p>
+        Shadow testing runs the new version alongside the current version,
+        without sending traffic to the new version. It is used to test how the
+        new version performs with real production data.
+      </p>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="footer">
+      <p>This app was created by Thea Holtlund Jacobsen</p>
+      <p>&copy; 2024, My Kubernetes App. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
