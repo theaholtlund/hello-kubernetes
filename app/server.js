@@ -30,6 +30,11 @@ app.get("/kubernetes", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "kubernetes.html"));
 });
 
+// Define route handler for Kubernetes quiz page
+app.get("/kubernetes-quiz", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "kubernetes-quiz.html"));
+});
+
 // Array to store greetings data
 let greetings = [];
 

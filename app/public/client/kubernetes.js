@@ -134,4 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initialiseScaling();
     loadQuiz();
   }
+  if (window.location.pathname === "/kubernetes-quiz") {
+    loadQuiz();
+  }
 });
