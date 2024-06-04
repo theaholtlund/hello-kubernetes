@@ -26,18 +26,18 @@ app.get("/datetime", (req, res) => {
 });
 
 // Define route handler for Kubernetes page
-app.get("/kubernetes", (req, res) => {
+app.get("/k8s-intro", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "k8s-intro.html"));
 });
 
 // Define route handler for Kubernetes quiz page
-app.get("/kubernetes-quiz", (req, res) => {
+app.get("/k8s-quiz", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "k8s-quiz.html"));
 });
 
 // Define route handler for Kubernetes quiz page
-app.get("/kubernetes-deployment", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "k8s-deployment.html"));
+app.get("/k8s-learning", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "k8s-learning.html"));
 });
 
 // Array to store greetings data

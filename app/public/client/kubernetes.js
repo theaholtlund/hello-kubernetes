@@ -1,25 +1,5 @@
 // Client-side functionality for the Kubernetes page
 
-// Function to fetch and display quote on time
-function fetchAndDisplayQuote() {
-  fetch("https://api.quotable.io/random?tags=time")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch quote");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const quoteText = `"${data.content}" – ${data.author}`;
-      document.getElementById("quoteText").textContent = quoteText;
-    })
-    .catch((error) => {
-      console.error("Error fetching quote:", error);
-      document.getElementById("quoteText").textContent =
-        "Failed to fetch quote. Please try again later.";
-    });
-}
-
 // Function to update replica count display and visualisation
 function updateReplicaCount(replicaCount) {
   document.getElementById("replicaCount").textContent = replicaCount;
@@ -115,7 +95,7 @@ function checkAnswer(questionId, selectedAnswer) {
 
 // Function to load the quiz content dynamically
 function loadQuiz() {
-  fetch("kubernetes-quiz.html")
+  fetch("k8s-quiz.html")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Failed to load quiz");
@@ -130,11 +110,10 @@ function loadQuiz() {
 
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.pathname === "/kubernetes") {
+  if (window.location.pathname === "/k8s-intro") {
     initialiseScaling();
-    loadQuiz();
   }
-  if (window.location.pathname === "/kubernetes-quiz") {
+  if (window.location.pathname === "/k8s-quiz") {
     loadQuiz();
   }
 });
