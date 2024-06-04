@@ -74,6 +74,24 @@ function initialiseScaling() {
     .catch((error) => console.error("Error initialising scaling:", error));
 }
 
+// Function to load the quiz content dynamically
+function loadQuiz() {
+  fetch("k8s-quiz.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to load quiz");
+      }
+      return response.text();
+    })
+    .then((html) => {
+      const quizContent = new DOMParser()
+        .parseFromString(html, "text/html")
+        .querySelector("#quiz-container").innerHTML;
+      document.getElementById("quiz-container").innerHTML = quizContent;
+    })
+    .catch((error) => console.error("Error loading quiz:", error));
+}
+
 // Function to check the answer for quiz questions
 function checkAnswer(questionId, selectedAnswer) {
   const answers = {
@@ -91,21 +109,6 @@ function checkAnswer(questionId, selectedAnswer) {
     feedbackElement.textContent = "Incorrect. Please try again.";
     feedbackElement.style.color = "red";
   }
-}
-
-// Function to load the quiz content dynamically
-function loadQuiz() {
-  fetch("k8s-quiz.html")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to load quiz");
-      }
-      return response.text();
-    })
-    .then((html) => {
-      document.getElementById("quiz-container").innerHTML = html;
-    })
-    .catch((error) => console.error("Error loading quiz:", error));
 }
 
 // Handle event listeners on respective pages
