@@ -19,6 +19,40 @@
       <a href="/k8s-quiz" class="nav-link">K8s Quiz</a>
     </div>
 
+    <!-- Best practices section -->
+    <div class="container">
+      <h2 class="heading">Best Practices for Kubernetes Deployments</h2>
+      <p class="paragraph">
+        When deploying applications in Kubernetes, it's essential to follow best
+        practices to ensure efficiency, reliability, and scalability. Here are
+        some tips:
+      </p>
+      <ul class="paragraph">
+        <li>
+          Use declarative configuration: Define your application's desired state
+          using YAML manifests to ensure consistency and reproducibility.
+        </li>
+        <li>
+          Implement resource limits: Set resource limits and requests to prevent
+          resource contention and ensure fair allocation of resources among
+          pods.
+        </li>
+        <li>
+          Monitor and auto-scale: Utilize Kubernetes' built-in monitoring tools
+          and horizontal pod autoscaling to dynamically adjust resources based
+          on workload demands.
+        </li>
+        <li>
+          Implement health checks: Define readiness and liveness probes to
+          ensure that pods are healthy and ready to serve traffic.
+        </li>
+        <li>
+          Manage secrets securely: Use Kubernetes secrets to store sensitive
+          information such as API keys, passwords, and certificates securely.
+        </li>
+      </ul>
+    </div>
+
     <!-- Deployment strategies section -->
     <div class="container">
       <h1 class="heading">Kubernetes Deployment Strategies</h1>
