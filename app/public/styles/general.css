@@ -88,3 +88,13 @@ body {
   border: 1px solid #333;
   font-size: 16px;
 }
+
+/* Rules for styling best practices list */
+.best-practices-list li {
+  margin-bottom: 10px;
+}
+
+/* Rules for styling tools list */
+.tools-list li {
+  margin-bottom: 10px;
+}

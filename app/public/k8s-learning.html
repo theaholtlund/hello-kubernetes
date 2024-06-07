@@ -27,7 +27,7 @@
         practices to ensure efficiency, reliability, and scalability. Here are
         some tips:
       </p>
-      <ul class="paragraph">
+      <ul class="best-practices-list">
         <li>
           <strong>Use declarative configuration:</strong> Define your
           application's desired state using YAML manifests to ensure consistency
@@ -63,7 +63,7 @@
         There are various tools and frameworks available to streamline
         Kubernetes deployments and management. Some popular ones include:
       </p>
-      <ul class="paragraph">
+      <ul class="tools-list">
         <li>
           <strong>Helm:</strong> A package manager for Kubernetes that
           simplifies the deployment and management of applications.
@@ -97,36 +97,36 @@
         and minimal downtime. These strategies help in managing the lifecycle of
         applications effectively.
       </p>
-      <h2 class="heading">Rolling Updates</h2>
+      <h2 class="subheading">Rolling Updates</h2>
       <p>
         Rolling updates allow a user to update the application gradually.
         Kubernetes progressively replaces instances of the old version of the
         application with the new version.
       </p>
 
-      <h2 class="heading">Blue-Green Deployment</h2>
+      <h2 class="subheading">Blue-Green Deployment</h2>
       <p>
-        In a blue-green deployment, the user create two separate environments -
+        In a blue-green deployment, the user creates two separate environments -
         one for the current version (blue) and one for the new version (green).
         Once the green environment is ready, traffic is switched from blue to
         green.
       </p>
 
-      <h2 class="heading">Canary Releases</h2>
+      <h2 class="subheading">Canary Releases</h2>
       <p>
         Canary releases involve rolling out the update to a small subset of
         users before rolling it out to the entire user base. This allows for
         testing the update in a production environment with minimal risk.
       </p>
 
-      <h2 class="heading">A/B Testing</h2>
+      <h2 class="subheading">A/B Testing</h2>
       <p>
         A/B testing involves deploying two versions (A and B) simultaneously to
         compare their performance. Traffic is split between the two versions,
         and metrics are collected to determine the better-performing version.
       </p>
 
-      <h2 class="heading">Shadow Testing</h2>
+      <h2 class="subheading">Shadow Testing</h2>
       <p>
         Shadow testing runs the new version alongside the current version,
         without sending traffic to the new version. It is used to test how the
