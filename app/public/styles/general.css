@@ -37,7 +37,6 @@ body {
 /* Rules for making embedded images round */
 .round-image {
   border-radius: 50%;
-  overflow: hidden;
 }
 
 /* Rules for styling replica visualisations */
