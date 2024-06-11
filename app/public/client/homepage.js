@@ -82,10 +82,24 @@ function deleteGreeting(greetingId) {
     .catch((error) => console.error("Error deleting greeting:", error));
 }
 
+// Function to fetch and display a fun fact
+function fetchAndDisplayFunFact() {
+  const funFacts = [
+    "The longest year in history was 46 B.C., which lasted 445 days!",
+    "A day on Venus is longer than a year on Venus.",
+    "The world's most accurate clock is the NIST-F1 Cesium Fountain Clock in Colorado.",
+    "Julius Caesar introduced the Julian calendar in 45 B.C.",
+    "The first mechanical clocks were created in the 14th century.",
+  ];
+  const randomIndex = Math.floor(Math.random() * funFacts.length);
+  document.getElementById("funFact").textContent = funFacts[randomIndex];
+}
+
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/") {
     fetchAndDisplayGreetings();
+    fetchAndDisplayFunFact();
     // Attach the form submission handler
     document
       .getElementById("greetingForm")
