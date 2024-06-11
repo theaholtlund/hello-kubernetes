@@ -87,9 +87,13 @@ function fetchAndDisplayFunFact() {
   const funFacts = [
     "The longest year in history was 46 B.C., which lasted 445 days!",
     "A day on Venus is longer than a year on Venus.",
-    "The world's most accurate clock is the NIST-F1 Cesium Fountain Clock in Colorado.",
-    "Julius Caesar introduced the Julian calendar in 45 B.C.",
-    "The first mechanical clocks were created in the 14th century.",
+    "The Eiffel Tower can be 15 cm taller during the summer due to the expansion of iron in the heat.",
+    "In botanical terms, bananas qualify as berries, while strawberries do not.",
+    "Two pump blood to the gills, while the third pumps it to the rest of the body.",
+    "In the 18th century, pineapples were a symbol of wealth and hospitality.",
+    "Occasionally, a leap second is added to UTC to account for irregularities in the Earth's rotation.",
+    "Atomic clocks are so precise they can measure time to within a billionth of a second.",
+    "Ancient Egyptians used a star called Sirius to help them keep track of the time of year.",
   ];
   const randomIndex = Math.floor(Math.random() * funFacts.length);
   document.getElementById("funFact").textContent = funFacts[randomIndex];
