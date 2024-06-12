@@ -84,20 +84,13 @@ function deleteGreeting(greetingId) {
 
 // Function to fetch and display a fun fact
 function fetchAndDisplayFunFact() {
-  const funFacts = [
-    "The longest year in history was 46 B.C., which lasted 445 days!",
-    "A day on Venus is longer than a year on Venus.",
-    "The Eiffel Tower can be 15 cm taller during the summer due to the expansion of iron in the heat.",
-    "In botanical terms, bananas qualify as berries, while strawberries do not.",
-    "Occasionally, a leap second is added to UTC to account for irregularities in the Earth's rotation.",
-    "Atomic clocks are so precise they can measure time to within a billionth of a second.",
-    "In the 18th century, pineapples were a symbol of wealth and hospitality.",
-    "Sea otters hold hands while sleeping to stay together.",
-    "Ancient Egyptians used a star called Sirius to help them keep track of the time of year.",
-    "A bolt of lightning contains enough energy to toast 100,000 slices of bread.",
-  ];
-  const randomIndex = Math.floor(Math.random() * funFacts.length);
-  document.getElementById("funFact").textContent = funFacts[randomIndex];
+  fetch("/content/funfacts.json")
+    .then((response) => response.json())
+    .then((funFacts) => {
+      const randomIndex = Math.floor(Math.random() * funFacts.length);
+      document.getElementById("funFact").textContent = funFacts[randomIndex];
+    })
+    .catch((error) => console.error("Error fetching fun facts:", error));
 }
 
 // Handle event listeners on respective pages
