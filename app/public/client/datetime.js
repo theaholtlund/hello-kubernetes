@@ -55,15 +55,17 @@ function fetchAndDisplayGmtTime() {
 
 // Function to fetch and display quote on time
 function fetchAndDisplayQuote() {
-  fetch("/quote")
+  fetch("/content/timequotes.json")
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Failed to fetch quote");
+        throw new Error("Failed to fetch quotes");
       }
       return response.json();
     })
     .then((data) => {
-      const quoteText = `"${data.content}" – ${data.author}`;
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const quote = data[randomIndex];
+      const quoteText = `"${quote.quote}" – ${quote.author}`;
       document.getElementById("quoteText").textContent = quoteText;
     })
     .catch((error) => {
