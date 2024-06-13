@@ -85,33 +85,6 @@ app.get("/currentdatetime", (req, res) => {
   res.json({ timestamp: currentTimestamp });
 });
 
-// Quote cache and refresh interval, as quote is slow to load
-let cachedQuote = { content: "Fetching quote...", author: "" };
-const refreshInterval = 3600000; // One hour in milliseconds
-
-async function fetchQuote() {
-  try {
-    const response = await fetch("https://api.quotable.io/random?tags=time");
-    if (response.ok) {
-      const data = await response.json();
-      cachedQuote = { content: data.content, author: data.author };
-    } else {
-      console.error(`Failed to fetch quote: ${response.statusText}`);
-    }
-  } catch (error) {
-    console.error("Error fetching quote:", error);
-  }
-}
-
-// Initial fetch and set interval for refreshing the quote
-fetchQuote();
-setInterval(fetchQuote, refreshInterval);
-
-// Route handler to get the cached quote
-app.get("/quote", (req, res) => {
-  res.json(cachedQuote);
-});
-
 // ======== KUBERNETES FUNCTIONALITY ========
 // Array to store simulated replica count
 let appState = {
