@@ -9,7 +9,7 @@ function updateReplicaCount(replicaCount) {
 
   for (let i = 0; i < replicaCount; i++) {
     const packageImage = document.createElement("img");
-    packageImage.src = "content/package.png";
+    packageImage.src = "graphics/package.png";
     packageImage.className = "package-image";
     replicaVisualisation.appendChild(packageImage);
   }
