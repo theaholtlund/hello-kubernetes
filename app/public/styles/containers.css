@@ -13,16 +13,7 @@
 }
 
 /* Rules for styling date and time container */
-.datetime-container {
-  margin: 18px;
-  padding: 18px;
-  border-radius: 5px;
-  border: 1px solid #333;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Rules for styling quote container */
-.quote-container {
+.framed-container {
   margin: 18px;
   padding: 18px;
   border-radius: 5px;
