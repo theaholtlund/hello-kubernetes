@@ -62,11 +62,3 @@ p {
   font-size: 18px;
   margin-top: 10px;
 }
-
-/* Rules for styling time zone value */
-.timezone-value {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ffa64e;
-  text-align: center;
-}
