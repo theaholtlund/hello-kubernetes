@@ -32,8 +32,8 @@ app.get("/k8s1-intro", (req, res) => {
 });
 
 // Define route handler for Kubernetes learning page
-app.get("/k8s-learning", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "k8s-learning.html"));
+app.get("/k8s2-theory", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "k8s2-theory.html"));
 });
 
 // Define route handler for Kubernetes quiz page
