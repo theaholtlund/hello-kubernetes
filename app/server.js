@@ -37,8 +37,8 @@ app.get("/k8s2-theory", (req, res) => {
 });
 
 // Define route handler for Kubernetes quiz page
-app.get("/k8s-quiz", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "k8s-quiz.html"));
+app.get("/k8s3-quiz", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "k8s3-quiz.html"));
 });
 
 // ======== HOME PAGE FUNCTIONALITY ========

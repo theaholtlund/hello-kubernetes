@@ -76,7 +76,7 @@ function initialiseScaling() {
 
 // Function to load the quiz content dynamically
 function loadQuiz() {
-  fetch("k8s-quiz.html")
+  fetch("k8s3-quiz.html")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Failed to load quiz");
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/k8s1-intro") {
     initialiseScaling();
   }
-  if (window.location.pathname === "/k8s-quiz") {
+  if (window.location.pathname === "/k8s3-quiz") {
     loadQuiz();
   }
 });
