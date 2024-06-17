@@ -27,8 +27,8 @@ app.get("/datetime", (req, res) => {
 });
 
 // Define route handler for Kubernetes intro page
-app.get("/k8s-intro", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "k8s-intro.html"));
+app.get("/k8s1-intro", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "k8s1-intro.html"));
 });
 
 // Define route handler for Kubernetes learning page

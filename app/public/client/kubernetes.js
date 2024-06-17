@@ -113,7 +113,7 @@ function checkAnswer(questionId, selectedAnswer) {
 
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.pathname === "/k8s-intro") {
+  if (window.location.pathname === "/k8s1-intro") {
     initialiseScaling();
   }
   if (window.location.pathname === "/k8s-quiz") {
