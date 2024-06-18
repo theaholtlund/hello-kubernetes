@@ -1,56 +1,42 @@
 // Client-side functionality for the date and time page
 
-// Function to fetch and display the user's local current date and time
-function fetchAndDisplayLocalTime() {
-  fetch("/currentdatetime")
+// Helper function to fetch and display date and time
+function fetchAndDisplayDateTime(url, elementId, options = {}) {
+  fetch(url)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Failed to fetch local datetime");
+        throw new Error(`Failed to fetch datetime from ${url}`);
       }
       return response.json();
     })
     .then((data) => {
-      const localTimestamp = data.timestamp;
-      const localDateTime = new Date(localTimestamp);
-      const options = { hour12: false };
-      const dayOfWeek = localDateTime.toLocaleString("en-US", {
+      const dateTime = new Date(data.timestamp);
+      const dayOfWeek = dateTime.toLocaleString("en-US", {
         weekday: "long",
+        ...options,
       });
-      const localDateTimeString =
-        dayOfWeek + " " + localDateTime.toLocaleString("en-US", options);
-      const localDateTimeElement = document.getElementById("localDateTime");
-      localDateTimeElement.textContent = localDateTimeString;
+      const dateTimeString = `${dayOfWeek} ${dateTime.toLocaleString(
+        "en-US",
+        options
+      )}`;
+      document.getElementById(elementId).textContent = dateTimeString;
     })
     .catch((error) => {
-      console.error("Error fetching local datetime:", error);
+      console.error(`Error fetching datetime from ${url}:`, error);
     });
+}
+
+// Function to fetch and display the user's local current date and time
+function fetchAndDisplayLocalTime() {
+  fetchAndDisplayDateTime("/currentdatetime", "localDateTime");
 }
 
 // Function to fetch and display the current date and time in GMT
 function fetchAndDisplayGmtTime() {
-  fetch("/currentdatetime?timezone=GMT")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch GMT datetime");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const gmtTimestamp = data.timestamp;
-      const gmtDateTime = new Date(gmtTimestamp);
-      const options = { timeZone: "GMT", hour12: false }; // Use 24-hour format
-      const dayOfWeek = gmtDateTime.toLocaleString("en-US", {
-        weekday: "long",
-        timeZone: "GMT",
-      });
-      const gmtDateTimeString =
-        dayOfWeek + " " + gmtDateTime.toLocaleString("en-US", options);
-      const gmtDateTimeElement = document.getElementById("gmtDateTime");
-      gmtDateTimeElement.textContent = gmtDateTimeString;
-    })
-    .catch((error) => {
-      console.error("Error fetching GMT datetime:", error);
-    });
+  fetchAndDisplayDateTime("/currentdatetime?timezone=GMT", "gmtDateTime", {
+    timeZone: "GMT",
+    hour12: false,
+  });
 }
 
 // Function to fetch and display quote on time
@@ -77,28 +63,11 @@ function fetchAndDisplayQuote() {
 
 // Function to fetch and display the current time in the selected time zone
 function fetchAndDisplayTimezoneTime(timezone) {
-  fetch(`/currentdatetime?timezone=${timezone}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch timezone datetime");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const timezoneTimestamp = data.timestamp;
-      const timezoneDateTime = new Date(timezoneTimestamp);
-      const options = { timeZone: timezone, hour12: false };
-      const dayOfWeek = timezoneDateTime.toLocaleString("en-US", {
-        weekday: "long",
-      });
-      const timezoneDateTimeString =
-        dayOfWeek + " " + timezoneDateTime.toLocaleString("en-US", options);
-      const timezoneTimeElement = document.getElementById("timezoneTime");
-      timezoneTimeElement.textContent = timezoneDateTimeString;
-    })
-    .catch((error) => {
-      console.error("Error fetching timezone datetime:", error);
-    });
+  fetchAndDisplayDateTime(
+    `/currentdatetime?timezone=${timezone}`,
+    "timezoneTime",
+    { timeZone: timezone, hour12: false }
+  );
 }
 
 // Function to initialise time zone select event listener
