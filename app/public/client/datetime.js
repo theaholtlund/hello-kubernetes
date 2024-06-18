@@ -41,6 +41,25 @@ function fetchAndDisplayGmtTime() {
   });
 }
 
+// Function to fetch and display the current time in the selected time zone
+function fetchAndDisplayTimezoneTime(timezone) {
+  fetchAndDisplayDateTime(
+    `/currentdatetime?timezone=${timezone}`,
+    "timezoneTime",
+    { timeZone: timezone, hour12: false }
+  );
+}
+
+// Function to initialise time zone select event listener
+function initialiseTimezoneSelect() {
+  const timezoneSelect = document.getElementById("timezoneSelect");
+  timezoneSelect.addEventListener("change", (event) => {
+    fetchAndDisplayTimezoneTime(event.target.value);
+  });
+
+  fetchAndDisplayTimezoneTime(timezoneSelect.value);
+}
+
 // Function to fetch and display quote on time
 function fetchAndDisplayQuote() {
   fetch("/content/timequotes.json")
@@ -63,31 +82,12 @@ function fetchAndDisplayQuote() {
     });
 }
 
-// Function to fetch and display the current time in the selected time zone
-function fetchAndDisplayTimezoneTime(timezone) {
-  fetchAndDisplayDateTime(
-    `/currentdatetime?timezone=${timezone}`,
-    "timezoneTime",
-    { timeZone: timezone, hour12: false }
-  );
-}
-
-// Function to initialise time zone select event listener
-function initialiseTimezoneSelect() {
-  const timezoneSelect = document.getElementById("timezoneSelect");
-  timezoneSelect.addEventListener("change", (event) => {
-    fetchAndDisplayTimezoneTime(event.target.value);
-  });
-
-  fetchAndDisplayTimezoneTime(timezoneSelect.value);
-}
-
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/datetime") {
     fetchAndDisplayLocalTime();
     fetchAndDisplayGmtTime();
-    fetchAndDisplayQuote();
     initialiseTimezoneSelect();
+    fetchAndDisplayQuote();
   }
 });
