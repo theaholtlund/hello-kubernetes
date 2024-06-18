@@ -28,7 +28,9 @@ function fetchAndDisplayDateTime(url, elementId, options = {}) {
 
 // Function to fetch and display the user's local current date and time
 function fetchAndDisplayLocalTime() {
-  fetchAndDisplayDateTime("/currentdatetime", "localDateTime");
+  fetchAndDisplayDateTime("/currentdatetime", "localDateTime", {
+    hour12: false,
+  });
 }
 
 // Function to fetch and display the current date and time in GMT
