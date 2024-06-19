@@ -6,9 +6,9 @@ navbar.classList.add("navbar");
 const navbarContent = `
   <a href="/" class="nav-link">Home</a>
   <a href="/datetime" class="nav-link">Date and Time</a>
-  <a href="/k8s1-intro" class="nav-link">K8s Intro</a>
-  <a href="/k8s2-theory" class="nav-link">K8s Theory</a>
-  <a href="/k8s3-quiz" class="nav-link">K8s Quiz</a>
+  <a href="/k8s1-intro" class="nav-link">Kubernetes Intro</a>
+  <a href="/k8s2-theory" class="nav-link">Kubernetes Theory</a>
+  <a href="/k8s3-quiz" class="nav-link">Kubernetes Quiz</a>
 `;
 
 // Set navbar content
