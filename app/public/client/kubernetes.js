@@ -1,5 +1,7 @@
 // Client-side functionality for the Kubernetes page
 
+let triesCount = 0; // Counter to track the number of attempts
+
 // Function to update replica count display and visualisation
 function updateReplicaCount(replicaCount) {
   document.getElementById("replicaCount").textContent = replicaCount;
@@ -109,6 +111,30 @@ function checkAnswer(questionId, selectedAnswer) {
     feedbackElement.textContent = "Incorrect. Please try again.";
     feedbackElement.style.color = "red";
   }
+
+  // Check if all questions are correct
+  if (areAllAnswersCorrect()) {
+    triesCount++;
+    document.getElementById(
+      "tries-feedback"
+    ).textContent = `You got all answers correct in ${triesCount} tries!`;
+  } else {
+    triesCount++;
+  }
+}
+
+// Function to check if all answers are correct
+function areAllAnswersCorrect() {
+  const answers = {
+    q1: "a",
+    q2: "b",
+    q3: "a",
+  };
+
+  return Object.keys(answers).every((questionId) => {
+    const feedbackElement = document.getElementById(`${questionId}-feedback`);
+    return feedbackElement.textContent === "Correct! Well done!";
+  });
 }
 
 // Handle event listeners on respective pages
