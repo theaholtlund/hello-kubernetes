@@ -117,7 +117,7 @@ function checkAnswer(questionId, selectedAnswer) {
     triesCount++;
     document.getElementById(
       "tries-feedback"
-    ).textContent = `You got all answers correct in ${triesCount} tries!`;
+    ).innerHTML = `You got all answers correct in <span style="color: #ffb86e;">${triesCount}</span> tries!`;
   } else {
     triesCount++;
   }
