@@ -1,7 +1,5 @@
 // Client-side functionality for the Kubernetes page
 
-let triesCount = 0; // Counter to track the number of attempts
-
 // Function to update replica count display and visualisation
 function updateReplicaCount(replicaCount) {
   document.getElementById("replicaCount").textContent = replicaCount;
@@ -94,7 +92,9 @@ function loadQuiz() {
     .catch((error) => console.error("Error loading quiz:", error));
 }
 
-// Function to check the answer for quiz questions
+// Functionality to check the answer for quiz questions
+let triesCount = 0;
+
 function checkAnswer(questionId, selectedAnswer) {
   const answers = {
     q1: "a",
