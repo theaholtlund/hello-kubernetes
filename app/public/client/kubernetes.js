@@ -113,7 +113,7 @@ function checkAnswer(questionId, selectedAnswer) {
   }
 
   // Check if all questions are correct
-  if (areAllAnswersCorrect()) {
+  if (correctAnswers()) {
     triesCount++;
     document.getElementById(
       "tries-feedback"
@@ -124,7 +124,7 @@ function checkAnswer(questionId, selectedAnswer) {
 }
 
 // Function to check if all answers are correct
-function areAllAnswersCorrect() {
+function correctAnswers() {
   const answers = {
     q1: "a",
     q2: "b",
