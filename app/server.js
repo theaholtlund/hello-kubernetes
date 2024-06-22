@@ -42,39 +42,39 @@ app.get("/k8s3-quiz", (req, res) => {
 });
 
 // ======== HOME PAGE FUNCTIONALITY ========
-// Array to store greetings data
-let greetings = [];
+// Array to store reviews data
+let reviews = [];
 
-// Route handler to get all greetings
-app.get("/api/greetings", (req, res) => {
-  res.json(greetings);
+// Route handler to get all reviews
+app.get("/api/reviews", (req, res) => {
+  res.json(reviews);
 });
 
-// Route handler to add a new greeting
-app.post("/api/greetings", (req, res) => {
+// Route handler to add a new review
+app.post("/api/reviews", (req, res) => {
   const { title, content } = req.body;
-  const newGreeting = { id: greetings.length + 1, title, content };
-  greetings.push(newGreeting);
-  res.status(201).json(newGreeting);
+  const newReview = { id: reviews.length + 1, title, content };
+  reviews.push(newReview);
+  res.status(201).json(newReview);
 });
 
-// Route handler to update a greeting
-app.put("/api/greetings/:id", (req, res) => {
+// Route handler to update a review
+app.put("/api/reviews/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const { title, content } = req.body;
-  const greetingToUpdate = greetings.find((greeting) => greeting.id === id);
-  if (!greetingToUpdate) {
-    return res.status(404).json({ error: "Greeting not found" });
+  const reviewToUpdate = reviews.find((review) => review.id === id);
+  if (!reviewToUpdate) {
+    return res.status(404).json({ error: "Review not found" });
   }
-  greetingToUpdate.title = title;
-  greetingToUpdate.content = content;
-  res.json(greetingToUpdate);
+  reviewToUpdate.title = title;
+  reviewToUpdate.content = content;
+  res.json(reviewToUpdate);
 });
 
-// Route handler to delete a greeting
-app.delete("/api/greetings/:id", (req, res) => {
+// Route handler to delete a review
+app.delete("/api/reviews/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  greetings = greetings.filter((greeting) => greeting.id !== id);
+  reviews = reviews.filter((review) => review.id !== id);
   res.sendStatus(204);
 });
 

@@ -1,50 +1,50 @@
 // Client-side functionality for the home page
 
-// Function to create HTML element for displaying a greeting
-function createGreetingElement(greeting) {
-  const greetingElement = document.createElement("div");
-  greetingElement.innerHTML = `
-    <h3 class="greeting-title">${greeting.title}</h3>
-    <p class="greeting-text">${greeting.content}</p>
-    <button onclick="editGreeting(${greeting.id})" class="button">Edit</button>
-    <button onclick="deleteGreeting(${greeting.id})" class="button">Delete</button>
+// Function to create HTML element for displaying a review
+function createReviewElement(review) {
+  const reviewElement = document.createElement("div");
+  reviewElement.innerHTML = `
+    <h3 class="review-title">${review.title}</h3>
+    <p class="review-text">${review.content}</p>
+    <button onclick="editReview(${review.id})" class="button">Edit</button>
+    <button onclick="deleteReview(${review.id})" class="button">Delete</button>
   `;
-  return greetingElement;
+  return reviewElement;
 }
 
-// Function to fetch and display existing greetings
-function fetchAndDisplayGreetings() {
-  fetch("/api/greetings")
+// Function to fetch and display existing reviews
+function fetchAndDisplayReviews() {
+  fetch("/api/reviews")
     .then((response) => response.json())
-    .then((greetings) => {
-      const greetingsList = document.getElementById("greetingsList");
-      greetingsList.innerHTML = "";
-      greetings.forEach((greeting) =>
-        greetingsList.appendChild(createGreetingElement(greeting))
+    .then((reviews) => {
+      const reviewsList = document.getElementById("reviewsList");
+      reviewsList.innerHTML = "";
+      reviews.forEach((review) =>
+        reviewsList.appendChild(createReviewElement(review))
       );
     });
 }
 
-// Function to handle form submission to add a new greeting
-function handleGreetingFormSubmission(event) {
+// Function to handle form submission to add a new review
+function handleReviewFormSubmission(event) {
   event.preventDefault();
-  const title = document.getElementById("greetingTitle").value;
-  const content = document.getElementById("greetingContent").value;
+  const title = document.getElementById("reviewTitle").value;
+  const content = document.getElementById("reviewContent").value;
 
-  fetch("/api/greetings", {
+  fetch("/api/reviews", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title, content }),
   })
     .then((response) => response.json())
     .then(() => {
-      fetchAndDisplayGreetings();
-      document.getElementById("greetingForm").reset();
+      fetchAndDisplayReviews();
+      document.getElementById("reviewForm").reset();
     });
 }
 
-// Function to handle greeting editing
-function editGreeting(greetingId) {
+// Function to handle review editing
+function editReview(reviewId) {
   let title = "";
   let content = "";
 
@@ -62,24 +62,24 @@ function editGreeting(greetingId) {
     }
   }
 
-  fetch(`/api/greetings/${greetingId}`, {
+  fetch(`/api/reviews/${reviewId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title, content }),
   })
     .then((response) => response.json())
-    .then(() => fetchAndDisplayGreetings());
+    .then(() => fetchAndDisplayReviews());
 }
 
-// Function to delete a greeting
-function deleteGreeting(greetingId) {
-  fetch(`/api/greetings/${greetingId}`, { method: "DELETE" })
+// Function to delete a review
+function deleteReview(reviewId) {
+  fetch(`/api/reviews/${reviewId}`, { method: "DELETE" })
     .then((response) =>
       response.ok
-        ? fetchAndDisplayGreetings()
-        : console.error("Failed to delete greeting")
+        ? fetchAndDisplayReviews()
+        : console.error("Failed to delete review")
     )
-    .catch((error) => console.error("Error deleting greeting:", error));
+    .catch((error) => console.error("Error deleting review:", error));
 }
 
 // Function to fetch and display a fun fact
@@ -96,11 +96,11 @@ function fetchAndDisplayFunFact() {
 // Handle event listeners on respective pages
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/") {
-    fetchAndDisplayGreetings();
+    fetchAndDisplayReviews();
     fetchAndDisplayFunFact();
     // Attach the form submission handler
     document
-      .getElementById("greetingForm")
-      .addEventListener("submit", handleGreetingFormSubmission);
+      .getElementById("reviewForm")
+      .addEventListener("submit", handleReviewFormSubmission);
   }
 });
