@@ -12,11 +12,13 @@
   </head>
   <body>
     <!-- Navigation bar section -->
-    <script src="components/navbar.js"></script>
+    <header>
+      <script src="components/navbar.js" defer></script>
+    </header>
 
-    <!-- Kubernetes quiz section -->
-    <div id="quiz-container">
-      <div class="container">
+    <main>
+      <!-- Kubernetes quiz section -->
+      <section id="quiz-container" class="container">
         <img
           src="graphics/k8s3-quiz.gif"
           alt="SpongeBob SquarePants being happy"
@@ -76,12 +78,14 @@
           </div>
         </div>
         <p id="tries-feedback" class="feedback"></p>
-      </div>
-    </div>
+      </section>
+    </main>
 
     <!-- Footer section -->
-    <script src="components/footer.js"></script>
+    <footer>
+      <script src="components/footer.js" defer></script>
+    </footer>
 
-    <script src="client/kubernetes.js"></script>
+    <script src="client/kubernetes.js" defer></script>
   </body>
 </html>

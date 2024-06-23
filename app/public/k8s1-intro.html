@@ -12,49 +12,59 @@
   </head>
   <body>
     <!-- Navigation bar section -->
-    <script src="components/navbar.js"></script>
+    <header>
+      <script src="components/navbar.js" defer></script>
+    </header>
 
-    <!-- Kubernetes introduction section -->
-    <div class="container">
-      <img src="graphics/k8s1-intro.gif" alt="Kubernetes logo" class="image" />
-      <h1 class="heading">Introduction to Kubernetes</h1>
-      <p>
-        Kubernetes is an open-source platform for automating deployment, scaling
-        and management of containerised applications. It orchestrates container
-        clusters, handling tasks like deploying containers, scaling based on
-        demand and automating rollouts and rollbacks. Kubernetes simplifies the
-        management of containerised applications by handling the underlying
-        infrastructure, enabling efficient resource utilisation and providing
-        declarative configurations for deployments.
-      </p>
-      <p>
-        <br />
-        To learn more about Kubernetes and how to get started, visit the
-        Kubernetes
-        <a href="https://kubernetes.io/docs/setup/" class="highlight"
-          >"Getting Started"</a
-        >
-        website.
-      </p>
-    </div>
+    <main>
+      <!-- Kubernetes introduction section -->
+      <section class="container">
+        <img
+          src="graphics/k8s1-intro.gif"
+          alt="Kubernetes logo"
+          class="image"
+        />
+        <h1 class="heading">Introduction to Kubernetes</h1>
+        <p>
+          Kubernetes is an open-source platform for automating deployment,
+          scaling and management of containerised applications. It orchestrates
+          container clusters, handling tasks like deploying containers, scaling
+          based on demand and automating rollouts and rollbacks. Kubernetes
+          simplifies the management of containerised applications by handling
+          the underlying infrastructure, enabling efficient resource utilisation
+          and providing declarative configurations for deployments.
+        </p>
+        <p>
+          <br />
+          To learn more about Kubernetes and how to get started, visit the
+          Kubernetes
+          <a href="https://kubernetes.io/docs/setup/" class="highlight"
+            >"Getting Started"</a
+          >
+          website.
+        </p>
+      </section>
 
-    <!-- Replica scaling section -->
-    <div class="container">
-      <h2 class="heading">Kubernetes Scaling Simulation</h2>
-      <p>
-        This section is intended to learn about Kubernetes scaling in an
-        interactive way, with visual representations for replicas as the
-        application is scaled up and down.
-      </p>
-      <p>Current replica count: <span id="replicaCount"></span></p>
-      <button onclick="scaleUp()" class="button">Scale Up</button>
-      <button onclick="scaleDown()" class="button">Scale Down</button>
-      <div id="replicaVisualisation"></div>
-    </div>
+      <!-- Replica scaling section -->
+      <section class="container">
+        <h2 class="heading">Kubernetes Scaling Simulation</h2>
+        <p>
+          This section is intended to learn about Kubernetes scaling in an
+          interactive way, with visual representations for replicas as the
+          application is scaled up and down.
+        </p>
+        <p>Current replica count: <span id="replicaCount"></span></p>
+        <button onclick="scaleUp()" class="button">Scale Up</button>
+        <button onclick="scaleDown()" class="button">Scale Down</button>
+        <div id="replicaVisualisation"></div>
+      </section>
+    </main>
 
     <!-- Footer section -->
-    <script src="components/footer.js"></script>
+    <footer>
+      <script src="components/footer.js" defer></script>
+    </footer>
 
-    <script src="client/kubernetes.js"></script>
+    <script src="client/kubernetes.js" defer></script>
   </body>
 </html>
