@@ -12,65 +12,71 @@
   </head>
   <body>
     <!-- Navigation bar section -->
-    <script src="components/navbar.js"></script>
+    <header>
+      <script src="components/navbar.js" defer></script>
+    </header>
 
-    <!-- Home page section -->
-    <div class="container">
-      <img src="graphics/racoon.gif" alt="Dancing racoon" class="image" />
-      <h1 class="heading">Welcome to My Kubernetes App</h1>
-      <p>
-        This is a simple Express.js web application, developed to test and learn
-        more about Kubernetes.
-      </p>
+    <main>
+      <!-- Home page section -->
+      <section class="container">
+        <img src="graphics/racoon.gif" alt="Dancing racoon" class="image" />
+        <h1 class="heading">Welcome to My Kubernetes App</h1>
+        <p>
+          This is a simple Express.js web application, developed to test and
+          learn more about Kubernetes.
+        </p>
 
-      <br />
-      <p>
-        Express.js is a framework for Node.js that helps in building web
-        applications and APIs. It simplifies the process by setting up routes
-        for different URLs and defining how the application should respond to
-        requests. For example, a developer can specify what should happen when a
-        user visits the homepage or submits a form. Express.js handles various
-        types of HTTP requests like GET and POST, making it easy to create
-        server-side logic for web applications.
-      </p>
-    </div>
+        <br />
+        <p>
+          Express.js is a framework for Node.js that helps in building web
+          applications and APIs. It simplifies the process by setting up routes
+          for different URLs and defining how the application should respond to
+          requests. For example, a developer can specify what should happen when
+          a user visits the homepage or submits a form. Express.js handles
+          various types of HTTP requests like GET and POST, making it easy to
+          create server-side logic for web applications.
+        </p>
+      </section>
 
-    <!-- Fun facts section -->
-    <div class="container">
-      <h2 class="heading">Fun Fact of the Day</h2>
-      <p>
-        Discover a new interesting fact to increase your knowledge on things
-        nobody will every ask you about, before heading on to learn more about
-        Kubernetes!
-      </p>
-      <div class="framed-container">
-        <p id="funFact" class="framed-text"></p>
-      </div>
-    </div>
-
-    <!-- Reviews section -->
-    <div class="container">
-      <h2 class="heading">Leave Us a Review!</h2>
-      <p>
-        Please leave us a review to let us know how you found My Kubernetes App.
-        Add a title and content to your review below, and then hit "Add review"
-        to post it.
-      </p>
-      <form id="reviewForm">
-        <div class="input-field">
-          <label for="reviewTitle">Title:</label>
-          <input id="reviewTitle" required /><br />
-          <label for="reviewContent">Content:</label>
-          <input id="reviewContent" required /><br />
+      <!-- Fun facts section -->
+      <section class="container">
+        <h2 class="heading">Fun Fact of the Day</h2>
+        <p>
+          Discover a new interesting fact to increase your knowledge on things
+          nobody will every ask you about, before heading on to learn more about
+          Kubernetes!
+        </p>
+        <div class="framed-container">
+          <p id="funFact" class="framed-text"></p>
         </div>
-        <button type="submit" class="button">Add review</button>
-      </form>
-      <div id="reviewsList"></div>
-    </div>
+      </section>
+
+      <!-- Reviews section -->
+      <section class="container">
+        <h2 class="heading">Leave Us a Review!</h2>
+        <p>
+          Please leave us a review to let us know how you found My Kubernetes
+          App. Add a title and content to your review below, and then hit "Add
+          review" to post it.
+        </p>
+        <form id="reviewForm">
+          <div class="input-field">
+            <label for="reviewTitle">Title:</label>
+            <input id="reviewTitle" required /><br />
+            <label for="reviewContent">Content:</label>
+            <input id="reviewContent" required /><br />
+          </div>
+          <button type="submit" class="button">Add review</button>
+        </form>
+        <div id="reviewsList"></div>
+      </section>
+    </main>
 
     <!-- Footer section -->
-    <script src="components/footer.js"></script>
+    <footer>
+      <script src="components/footer.js" defer></script>
+    </footer>
 
-    <script src="client/homepage.js"></script>
+    <script src="client/homepage.js" defer></script>
   </body>
 </html>
