@@ -12,52 +12,58 @@
   </head>
   <body>
     <!-- Navigation bar section -->
-    <script src="components/navbar.js"></script>
+    <header>
+      <script src="components/navbar.js" defer></script>
+    </header>
 
-    <!-- Date and time section -->
-    <div class="container">
-      <img src="graphics/clock.gif" alt="Clock image" class="image" />
-      <h1 class="heading">Experiment with Date and Time</h1>
-      <p class="datetime-text">Your Local Time:</p>
-      <div class="framed-container">
-        <p class="datetime-value" id="localDateTime"></p>
-      </div>
-      <p class="datetime-text">Greenwich Mean Time:</p>
-      <div class="framed-container">
-        <p class="datetime-value" id="gmtDateTime"></p>
-      </div>
+    <main>
+      <!-- Date and time section -->
+      <section class="container">
+        <img src="graphics/clock.gif" alt="Clock image" class="image" />
+        <h1 class="heading">Experiment with Date and Time</h1>
+        <p class="datetime-text">Your Local Time:</p>
+        <div class="framed-container">
+          <p class="datetime-value" id="localDateTime"></p>
+        </div>
+        <p class="datetime-text">Greenwich Mean Time:</p>
+        <div class="framed-container">
+          <p class="datetime-value" id="gmtDateTime"></p>
+        </div>
 
-      <!-- Time zone converter section -->
-      <p class="datetime-text">Time Zone Converter:</p>
-      <div class="timezone-container">
-        <label for="timezoneSelect" class="timezone-label"
-          >Select a time zone to see the current local time:</label
-        >
-        <select id="timezoneSelect" class="timezone-select">
-          <option value="UTC">UTC</option>
-          <option value="America/New_York">New York (EST)</option>
-          <option value="Europe/London">London (GMT)</option>
-          <option value="Asia/Tokyo">Tokyo (JST)</option>
-          <option value="Australia/Sydney">Sydney (AEST)</option>
-        </select>
-        <p class="timezone-text">
-          Current local time:
-          <span id="timezoneTime" class="datetime-value"></span>
-        </p>
-      </div>
-    </div>
+        <!-- Time zone converter section -->
+        <p class="datetime-text">Time Zone Converter:</p>
+        <div class="timezone-container">
+          <label for="timezoneSelect" class="timezone-label"
+            >Select a time zone to see the current local time:</label
+          >
+          <select id="timezoneSelect" class="timezone-select">
+            <option value="UTC">UTC</option>
+            <option value="America/New_York">New York (EST)</option>
+            <option value="Europe/London">London (GMT)</option>
+            <option value="Asia/Tokyo">Tokyo (JST)</option>
+            <option value="Australia/Sydney">Sydney (AEST)</option>
+          </select>
+          <p class="timezone-text">
+            Current local time:
+            <span id="timezoneTime" class="datetime-value"></span>
+          </p>
+        </div>
+      </section>
 
-    <!-- Quote about time section -->
-    <div class="container">
-      <h2 class="heading">Quote about time:</h2>
-      <div class="framed-container">
-        <p class="framed-text" id="quoteText"></p>
-      </div>
-    </div>
+      <!-- Quote about time section -->
+      <section class="container">
+        <h2 class="heading">Quote about time:</h2>
+        <div class="framed-container">
+          <p class="framed-text" id="quoteText"></p>
+        </div>
+      </section>
+    </main>
 
     <!-- Footer section -->
-    <script src="components/footer.js"></script>
+    <footer>
+      <script src="components/footer.js" defer></script>
+    </footer>
 
-    <script src="client/datetime.js"></script>
+    <script src="client/datetime.js" defer></script>
   </body>
 </html>
