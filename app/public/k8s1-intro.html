@@ -55,13 +55,11 @@
           interactive way, with visual representations for replicas as the
           application is scaled up and down.
         </p>
-        <div id="loadingIndicator">Loading...</div>
-        <div id="scalingContent" style="display: none">
-          <p>Current replica count: <span id="replicaCount"></span></p>
-          <button onclick="scaleUp()" class="button">Scale Up</button>
-          <button onclick="scaleDown()" class="button">Scale Down</button>
-          <div id="replicaVisualisation"></div>
-        </div>
+        <p>Current replica count: <span id="replicaCount"></span></p>
+        <button onclick="scaleUp()" class="button">Scale Up</button>
+        <button onclick="scaleDown()" class="button">Scale Down</button>
+        <div id="replicaVisualisation"></div>
+        <p id="loadingIndicator" style="display: none">Loading...</p>
       </section>
     </main>
 
