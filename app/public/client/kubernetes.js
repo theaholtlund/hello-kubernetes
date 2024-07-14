@@ -15,8 +15,19 @@ function updateReplicaCount(replicaCount) {
   }
 }
 
+// Function to show and hide the loading indicator
+function setLoading(loading) {
+  const loadingIndicator = document.getElementById("loadingIndicator");
+  if (loading) {
+    loadingIndicator.style.display = "block";
+  } else {
+    loadingIndicator.style.display = "none";
+  }
+}
+
 // Function to scale up, increase the replica count
 function scaleUp() {
+  setLoading(true);
   fetch("/api/scaleUp", { method: "POST" })
     .then((response) => {
       if (response.ok) {
@@ -29,11 +40,13 @@ function scaleUp() {
       updateReplicaCount(data.replicaCount);
       alert(data.message);
     })
-    .catch((error) => console.error("Error scaling up:", error));
+    .catch((error) => console.error("Error scaling up:", error))
+    .finally(() => setLoading(false));
 }
 
 // Function to scale down, decrease the replica count
 function scaleDown() {
+  setLoading(true);
   fetch("/api/scaleDown", { method: "POST" })
     .then((response) => {
       if (response.ok) {
@@ -55,11 +68,13 @@ function scaleDown() {
       } else {
         alert("Failed to scale down: " + error.message); // General error message
       }
-    });
+    })
+    .finally(() => setLoading(false));
 }
 
 // Function to initialise the scaling simulation
 function initialiseScaling() {
+  setLoading(true);
   fetch("/api/replicaCount")
     .then((response) => {
       if (response.ok) {
@@ -71,7 +86,8 @@ function initialiseScaling() {
     .then((data) => {
       updateReplicaCount(data.replicaCount);
     })
-    .catch((error) => console.error("Error initialising scaling:", error));
+    .catch((error) => console.error("Error initialising scaling:", error))
+    .finally(() => setLoading(false));
 }
 
 // Function to load the quiz content dynamically
