@@ -18,10 +18,13 @@ function updateReplicaCount(replicaCount) {
 // Function to show and hide the loading indicator
 function setLoading(loading) {
   const loadingIndicator = document.getElementById("loadingIndicator");
+  const scalingContent = document.getElementById("scalingContent");
   if (loading) {
     loadingIndicator.style.display = "block";
+    scalingContent.style.display = "none";
   } else {
     loadingIndicator.style.display = "none";
+    scalingContent.style.display = "block";
   }
 }
 
@@ -92,6 +95,7 @@ function initialiseScaling() {
 
 // Function to load the quiz content dynamically
 function loadQuiz() {
+  setLoading(true);
   fetch("k8s3-quiz.html")
     .then((response) => {
       if (!response.ok) {
@@ -105,7 +109,8 @@ function loadQuiz() {
         .querySelector("#quiz-container").innerHTML;
       document.getElementById("quiz-container").innerHTML = quizContent;
     })
-    .catch((error) => console.error("Error loading quiz:", error));
+    .catch((error) => console.error("Error loading quiz:", error))
+    .finally(() => setLoading(false));
 }
 
 // Functionality to check the answer for quiz questions
